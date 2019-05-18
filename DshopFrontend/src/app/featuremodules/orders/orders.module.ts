@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OrdersRoutingModule } from './orders-routing.module';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-
+import { PurchaseListComponent } from './purchase-list/purchase-list.component';
+import { SalesListComponent } from './sales-list/sales-list.component';
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [PurchaseListComponent, SalesListComponent],
   imports: [
     CommonModule,
     OrdersRoutingModule
