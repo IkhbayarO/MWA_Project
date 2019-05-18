@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52085d64-4891-41f3-8480-169eef74fd71" name="Default Changelist" comment="" />
+    <list default="true" id="52085d64-4891-41f3-8480-169eef74fd71" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +53,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DshopFrontend/src/app/featuremodules/orders/orders-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -58,6 +61,15 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="563" lean-forward="true" selection-start-line="563" selection-end-line="563" />
             </state>
           </provider>
         </entry>
@@ -110,15 +122,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DshopFrontend/node_modules/@angular/router/src/interfaces.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DshopFrontend/src/app/featuremodules/users/users-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
@@ -145,6 +148,7 @@
         <option value="$PROJECT_DIR$/DshopFrontend/src/app/featuremodules/users/users-routing.module.ts" />
         <option value="$PROJECT_DIR$/DshopFrontend/src/app/featuremodules/products/products-routing.module.ts" />
         <option value="$PROJECT_DIR$/DshopFrontend/src/app/featuremodules/orders/orders-routing.module.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -165,59 +169,6 @@
             <path>
               <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DshopFrontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DshopFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DshopFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DshopFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="featuremodules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DshopFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="featuremodules" type="462c0819:PsiDirectoryNode" />
-              <item name="orders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DshopFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="featuremodules" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MWA_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MWA_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="DshopFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="featuremodules" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -292,7 +243,7 @@
       <option name="presentableId" value="Default" />
       <updated>1558208183493</updated>
       <workItem from="1558208184967" duration="671000" />
-      <workItem from="1558208903415" duration="2265000" />
+      <workItem from="1558208903415" duration="2535000" />
     </task>
     <task id="LOCAL-00001" summary="initialized">
       <created>1558208948472</created>
@@ -308,16 +259,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558210990768</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="initialized-2">
+      <created>1558211328876</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1558211328876</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2936000" />
+    <option name="totallyTimeSpent" value="3206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1625" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25238398" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25238398" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -336,7 +295,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29444444" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.29444444" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -457,6 +416,13 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="563" lean-forward="true" selection-start-line="563" selection-end-line="563" />
         </state>
       </provider>
     </entry>
