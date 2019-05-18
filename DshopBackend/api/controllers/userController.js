@@ -1,6 +1,10 @@
 var User = require('../models/usersModel')
 
 exports.create = (request,response)=>{
+
+
+     var cust = request.body
+
  var customer = new User({
     firstname:"Christophe",
     lastname:'Habineza',
