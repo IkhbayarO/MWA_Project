@@ -1,22 +1,20 @@
-module.exports = class Product{
+export class Product {
     private id:String;
-    constructor(public name:String, category, price, public isAvailable: Boolean, image, description){}
 
-    getPrice(){
-        return this.price+" $"
+    constructor(public name: String, public category: String, public price: Number,
+                public isAvailable: Boolean, public image: String[], public description: String) {
+    }
 
+    getPrice(): String {
+        return this.price + " $";
+    }
 
-}
+    getId(): String{
+        return this.id;
+    }
 
-
-
-    // { id: ObjectId,
-    //     name: {type:String ,required:true},
-    //     category: {type:String ,required:true},
-    //     price: {type:Number ,required:true},
-    //     isAvailable: {type:Boolean ,required:true},
-    //     image:{type:[String] ,required:true},
-    //     description: {type:String ,required:true}
-    // }
+    setId(id): void{
+        this.id=id;
+    }
 
 };
