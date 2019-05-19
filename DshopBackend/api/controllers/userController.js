@@ -6,28 +6,14 @@ exports.create = (request,response)=>{
      var cust = request.body
 
  var customer = new User({
-    firstname:"Christophe",
-    lastname:'Habineza',
-    phone:'65734343',
-    email:'asda@gg.com',
-    username:'sina',
-    password:"123456"
-
+    firstname:cust.firstname,
+    lastname:cust.lastname,
+    phone: cust.phone,
+    email:cust.email,
+    username:cust.username,
+    password:cust.password
  })
 
-//  customer.save((err)=>{
-//     if(err) throw err;
-
-//     console.log("User added Successfully!")
-//    })
-
-//   customer.address= {
-//       street:"1000N 4th Strees",
-//      city:"Fairfield",
-//      state: "Iowa",
-//      zip:52557
-//    }
-  
 
 //    customer.save((err)=>{
 //       if(err) throw err;
@@ -36,6 +22,7 @@ exports.create = (request,response)=>{
 //      })
 
 
-   response.end("Hello From User Controller")
+   response.status(200).json({message:'success',})
 
 }
+
