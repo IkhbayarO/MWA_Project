@@ -25,11 +25,16 @@
             "styles": [
               "src/styles.css",
 <<<<<<< HEAD
+              "./node_modules/font-awesome/css/font-awesome.css"
+              
+=======
+<<<<<<< HEAD
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/app/featuremodules/orders/css/list.css"
 =======
               "./node_modules/bootstrap/dist/css/bootstrap.css"
 >>>>>>> a25401ca0de1bd7a2f134d817ffcedd0c93efce7
+>>>>>>> eedcd5f6dad0805f897a76f46d2d32d379ab8a21
             ],
             "scripts": [],
             "es5BrowserSupport": true
