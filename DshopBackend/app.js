@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 
+var dbconurl = require('./connectionString')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products')
@@ -40,7 +41,7 @@ app.use('/categories',categoriesRouter)
 
 //connecting to database
 
-mongoose.connect("mongodb+srv://dshop:umwana12@cs572final-4gja2.mongodb.net/mwafinal",{useNewUrlParser:true})
+mongoose.connect(dbconurl,{useNewUrlParser:true})
 
 var db = mongoose.connection;
 
