@@ -17,7 +17,7 @@ export class ProductServiceService {
   getProductList(){
     let products:Array<Object>;
 
-    let data: Product[];
+    let data: Array<Object>;
     // data= JSON.parse(localStorage.getItem("products"));
     data=JSON.parse("http://localhost:3000/products")
 
