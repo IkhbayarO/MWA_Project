@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
 var dbconurl = require('./connectionString')
 var indexRouter = require('./routes/index');
@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //importing routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('./products',productsRouter)
+app.use('/products',productsRouter)
 app.use('/carts',cartsRouter)
 app.use('/purchases',purchasesRouter)
 app.use('/sells',sellsRouter)

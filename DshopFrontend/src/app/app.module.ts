@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
 import { PaymentComponent } from './payment/payment.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,14 @@ import { PaymentComponent } from './payment/payment.component';
   ],
   imports: [
     BrowserModule,
+<<<<<<< HEAD
     FormsModule,
     AppRoutingModule,
     CommonModule
+=======
+    AppRoutingModule,
+      HttpClientModule
+>>>>>>> a25401ca0de1bd7a2f134d817ffcedd0c93efce7
   ],
   providers: [],
   bootstrap: [AppComponent]

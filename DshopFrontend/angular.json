@@ -24,8 +24,12 @@
             ],
             "styles": [
               "src/styles.css",
+<<<<<<< HEAD
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/app/featuremodules/orders/css/list.css"
+=======
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
+>>>>>>> a25401ca0de1bd7a2f134d817ffcedd0c93efce7
             ],
             "scripts": [],
             "es5BrowserSupport": true
