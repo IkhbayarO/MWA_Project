@@ -30,23 +30,7 @@ var userSchema = new mongoose.Schema({
     ],
     purchases:[
         {
-        products:[
-            { id: ObjectId,
-                name: String,
-                category: String,
-                price: Number,
-                isAvailable: Boolean,
-                image: [String],
-                description: String
-            }
-         ],
-         date:Date,
-         status:String
-       }
-    ],
-    sells:[
-        {
-            products:[
+            products:
                 { id: ObjectId,
                     name: String,
                     category: String,
@@ -54,11 +38,25 @@ var userSchema = new mongoose.Schema({
                     isAvailable: Boolean,
                     image: [String],
                     description: String
-                }
-             ],
-             date:Date,
-             status:String,
-             customer:{
+                },
+            date:Date,
+            status:String
+       }
+    ],
+    sells:[
+        {
+            products:
+                    { id: ObjectId,
+                        name: String,
+                        category: String,
+                        price: Number,
+                        isAvailable: Boolean,
+                        image: [String],
+                        description: String
+                    },
+            date:Date,
+            status:String,
+            customer:{
                 firstName: String,
                 lastName: String,
                 Phone: String,
@@ -70,8 +68,8 @@ var userSchema = new mongoose.Schema({
                     zip: Number
                 },
                 payment:String
-             }
-           }
+            }
+        }
     ],
     products:[
         { id: ObjectId,
