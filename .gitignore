@@ -553,6 +553,9 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+*.iml
+.iml
+
 # OpenCover UI analysis results
 OpenCover/
 
