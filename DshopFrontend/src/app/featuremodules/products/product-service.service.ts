@@ -22,4 +22,7 @@ export class ProductServiceService {
     return this.http.get("http://localhost:3000/products/"+key);
   }
 
+  addProduct(key: String){
+    return this.http.get("http://localhost:3000/products/add"+key);
+  }
 }
