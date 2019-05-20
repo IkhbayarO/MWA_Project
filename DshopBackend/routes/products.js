@@ -4,7 +4,9 @@ var productController = require('../api/controllers/productController');
 
 //1. get all products
 router.get('/', (req, res)=> {
-   productController.getAllProducts(req, res)
+    productController.getAllProducts(req, res)
+
+
 });
 
 
@@ -26,7 +28,7 @@ router.get("/:id", (req, res)=>{
 });
 
 //5. update product
-router.put("/update/:id", (req, res)=>{
+router.put("/:id", (req, res)=>{
    productController.updateProduct(req, res);
 });
 

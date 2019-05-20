@@ -13,7 +13,10 @@ exports.create = (request,response)=>{
     username:cust.username,
     password:cust.password
  })
-
+User.find().exec((err,data)=>{
+    response.status(200).json({message:'success',data:data})
+    }
+)
 
 //    customer.save((err)=>{
 //       if(err) throw err;
@@ -22,7 +25,7 @@ exports.create = (request,response)=>{
 //      })
 
 
-   response.status(200).json({message:'success',})
+
 
 }
 

@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var cors = require('cors')
 
 var dbconurl = require('./connectionString')
 var indexRouter = require('./routes/index');
@@ -14,7 +15,7 @@ var purchasesRouter = require('./routes/purchases')
 var sellsRouter = require('./routes/sells')
 var categoriesRouter = require('./routes/categories')
 var paymentsRouter = require('./routes/payments')
-var dbConnector = require('./api/middlewares/dbConnection')
+var dbConnector = require('./api/middlewares/dbConnection');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 
 //importing routers
