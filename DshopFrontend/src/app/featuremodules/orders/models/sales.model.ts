@@ -1,8 +1,10 @@
 
 
-export class SalesList {
-    id: string;
+export class Sales {
+    salesId: string;
     userId: string;
+    customerId: string;
+    productId: string;
     name: string;
     category: string;
     price: number;
