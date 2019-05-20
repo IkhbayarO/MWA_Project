@@ -17,18 +17,42 @@
     <div class="container">
         <div class="row" >
 
-            <div (click)="goDetails(prod._id)" class="col-md-3 col-sm-6" *ngFor="let prod of productList" id="{{prod._id}}">
-                <div class="single-shop-product">
-                    <div class="product-upper">
-                        <img src="{{prod.image[0]}}" alt="product image">
-                    </div>
-                    <h2><a >{{prod.name}}</a></h2>
-                    <div class="product-carousel-price">
-                        <ins>{{prod.price}} $</ins>
-                    </div>
+<!--            <div (click)="goDetails(prod._id)" class="col-md-3 col-sm-6" *ngFor="let prod of productList" id="{{prod._id}}">-->
+<!--                <div class="single-shop-product">-->
+<!--                    <div class="product-upper">-->
+<!--                        <img src="{{prod.image[0]}}" alt="product image">-->
+<!--                    </div>-->
+<!--                    <h2><a >{{prod.name}}</a></h2>-->
+<!--                    <div class="product-carousel-price">-->
+<!--                        <ins>{{prod.price}} $</ins>-->
+<!--                    </div>-->
 
-                    <div class="product-option-shop">
-                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow">Details</a>
+<!--                    <div class="product-option-shop">-->
+<!--                        <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow">Details</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+            <div class="related-products-wrapper">
+
+                <div class="related-products-carousel"  >
+
+
+                    <div class="single-product" style="width:28%;height: 400px; margin-bottom: 20px;margin-right: 2%;margin-left:2%;float: left"
+                         (click)="goDetails(product._id)" *ngFor="let product of productList">
+                        <div class="product-f-image" >
+                            <img style="height: 300px;width:100%" src="{{product.image[0]}}" alt="product picture">
+                            <div class="product-hover">
+<!--                                <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>-->
+                                <a class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                            </div>
+                        </div>
+
+                        <h2>{{product.name}}</h2>
+
+                        <div class="product-carousel-price">
+                            <ins>$ {{product.price}}</ins>
+                        </div>
                     </div>
                 </div>
             </div>
