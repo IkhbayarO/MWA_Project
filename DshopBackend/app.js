@@ -15,7 +15,7 @@ var purchasesRouter = require('./routes/purchases')
 var sellsRouter = require('./routes/sells')
 var categoriesRouter = require('./routes/categories')
 var paymentsRouter = require('./routes/payments')
-var dbConnector = require('./api/middlewares/dbConnection')
+var dbConnector = require('./api/middlewares/dbConnection');
 
 var app = express();
 
@@ -29,6 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 //importing routers

@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var productController = require('../api/controllers/productController');
 
-//1. get all products
+//1. get all products (done)
 router.get('/', (req, res)=> {
-   productController.getAllProducts(req, res)
+    productController.getAllProducts(req, res);
 });
 
 
@@ -20,13 +20,13 @@ router.get("/user/:id", (req, res)=>{
 });
 
 
-//4. get product by product id
+//4. get product by product id (done)
 router.get("/:id", (req, res)=>{
    productController.getProductByID(req, res);
 });
 
 //5. update product
-router.put("/update/:id", (req, res)=>{
+router.put("/:id", (req, res)=>{
    productController.updateProduct(req, res);
 });
 

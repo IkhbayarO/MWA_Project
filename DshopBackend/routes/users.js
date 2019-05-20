@@ -4,11 +4,15 @@ var userController = require('../api/controllers/userController');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  userController.create(req,res)
+  userController.getAll(req,res)
 });
 
-router.post('',(req,res,next)=>{
+router.post('/signup',(req,res,next)=>{
   userController.create(req,res)
+})
+
+router.post('/login',(req,res)=>{
+  userController.login(req,res);
 })
 
 module.exports = router;

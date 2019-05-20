@@ -7,66 +7,99 @@
                   <h2 class="title">Dshop Registratio Form</h2>
               </div>
               <div class="card-body">
-                  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-                      <div class="form-row m-b-55">
-                          <div class="name">Name</div>
-                          <div class="value">
-                              <div class="row row-space">
-                                  <div class="col-2">
-                                      <div class="input-group-desc">
-                                          <input required placeholder="firstname" class="input--style-5" type="text" name="first_name">
-                                          <label class="label--desc">first name</label>
-                                      </div>
-                                  </div>
-                                  <div class="col-2">
-                                      <div class="input-group-desc">
-                                          <input required placeholder="lastname" class="input--style-5" type="text" name="last_name">
-                                          <label class="label--desc">last name</label>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-row">
-                          <div class="name">username</div>
-                          <div class="value">
-                              <div class="input-group">
-                                  <input required placeholder="username" class="input--style-5" type="text" name="company">
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-row">
-                          <div class="name">Email</div>
-                          <div class="value">
-                              <div class="input-group">
-                                  <input required placeholder="email" class="input--style-5" type="email" name="email">
-                              </div>
-                          </div>
-                      </div>
+                  <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+                    
+                    <div class="form-row form-group">
+                        <div class="name">Firstname</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input [(ngModel)]="user.firstname" #firstname="ngModel" [ngClass]="{'is-invalid':f.submitted && firstname.Invalid}" 
+                                required placeholder="firstname" class="input--style-5" type="text" name="firstname" >
+                            </div>
+                        </div>
+                        <div  class="invalid-feedback">
+                            <div>Firstname Required</div>
+                        </div>
+                        {{user|json}}
+                        {{firstname.className}}
+                    </div>
 
-                      <div class="form-row">
+                    <div class="form-row form-group">
+                        <div class="name">Lastname</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input [(ngModel)]="user.lastname" #lastname="ngModel" [ngClass]="{'is-invalid':f.submitted && lastname.Invalid}" 
+                                required placeholder="lastname" class="input--style-5" type="text" name="lastname" >
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div>Lastname Required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row form-group">
+                        <div class="name">Username</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input [(ngModel)]="user.username" #username="ngModel" [ngClass]="{'is-invalid':f.submitted && username.Invalid}" 
+                                required placeholder="username" class="input--style-5" type="text" name="username" >
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div>Firstname Required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-group">
                         <div class="name">Phone</div>
                         <div class="value">
                             <div class="input-group">
-                                <input required placeholder="phone" class="input--style-5" type="phone" name="phone">
+                                <input [(ngModel)]="user.phone" #phone="ngModel" [ngClass]="{'is-invalid':f.submitted && phone.Invalid}" 
+                                required placeholder="phone" class="input--style-5" type="phone" name="phone" >
                             </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div>Phone Required</div>
                         </div>
                     </div>
 
+                    <div class="form-row form-group">
+                        <div class="name">Email</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input [(ngModel)]="user.email" #email="ngModel" [ngClass]="{'is-invalid':f.submitted && email.Invalid}" 
+                                required placeholder="email" class="input--style-5" type="email" name="email" >
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div>Email Required</div>
+                            <div>Email Invalid</div>
+                        </div>
+                    </div>
 
-                    <div class="form-row">
+                    <div class="form-row form-group">
                         <div class="name">Password</div>
                         <div class="value">
                             <div class="input-group">
-                                <input required placeholder="Password" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" class="input--style-5" type="password" name="phone">
+                                <input [(ngModel)]="user.password" #password="ngModel" [ngClass]="{'is-invalid':f.submitted && password.Invalid}" 
+                                required minlength="6" placeholder="password" class="input--style-5" type="password" name="password" >
                             </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <div>Password Required</div>
+                            <div>Password Invalid</div>
                         </div>
                     </div>
                      
-                      <div>
+                      <div class="group-form">
                           <button  class="btn btn--radius-2 btn--red" type="submit" [disabled]="!f.valid">Register</button>
+                          <!-- <button  class="btn btn--radius-2 btn--red" type="submit" >Register</button> -->
                       </div>
+
                   </form>
+
+               
               </div>
           </div>
       </div>

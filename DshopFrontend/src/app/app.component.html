@@ -1,6 +1,56 @@
-<!--The content below is only a placeholder and can be replaced.-->
 
-<h1>Hello</h1>
+<!--The content below is only a placeholder and can be replaced.-->,
 
+<div style="width:100%; overflow-x:hidden;margin:0;">
+
+<div class="" style="width:100%;margin-top:0px;padding:0">
+    <div class="container">
+        <div class="row">
+            <div class="navItem1 ">
+                <div class="user-menu" style="">
+                    <ul >
+                        <li><a [routerLink]="['']" style="font-size: 16px;"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a [routerLink]="['orders']" style="font-size: 16px;"><i class="fa fa-folder"></i> My Orders</a></li>
+                        <li><a [routerLink]="['users','login']" style="font-size: 16px;"><i class="fa fa-user"></i> Login</a></li>
+                     
+                    </ul>
+                </div>
+            </div>
+
+           
+
+            <div class=" navItem3 " style="">
+                    <div class="shopping-item">
+                        <a >Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                    </div>
+                </div>
+            
+           
+        </div>
+    </div>
+</div> <!-- End header area -->
+
+<div class="mainmenu-area" style="margin-top:10px;" >
+        <div class="container">
+            <div class="row">
+             
+                <div class="navbar">
+                    <ul class="nav navbar-nav" style="flex-direction: row">
+                        <li class="active"><a href="index.html">All</a></li>
+                        
+                        <li><a href="shop.html">Electronics</a></li>
+                        <li><a href="single-product.html">Appliances</a></li>
+                        <li><a href="cart.html">Office</a></li>
+                        <li><a href="checkout.html">Education</a></li>
+                        <li><a href="#">Others..</a></li>
+                    </ul>
+                </div>  
+            </div>
+        </div>
+
+        
+    </div>
+
+</div>
 
 <router-outlet></router-outlet>

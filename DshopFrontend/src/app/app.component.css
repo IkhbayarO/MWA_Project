@@ -1,0 +1,40 @@
+.navItem1{
+    width:60%;
+}
+
+
+
+.navItem3{
+    width:39%;
+}
+
+.mainmenu-area ul.navbar-nav li a {
+    color: #6e6a6a;
+    font-size: 12px;
+    padding: 10px 20px;
+    margin-left:10px;
+}
+
+.mainmenu-area ul.navbar-nav li:hover a, .mainmenu-area ul.navbar-nav li.active a {background: #5a88ca; color:#FFF;}
+.mainmenu-area .nav > li > a:focus {color: #FFF;}
+
+
+@media only screen and (max-width: 780px){
+
+    .navItem1{
+        width:80%;
+    }
+    
+    
+    
+    .navItem3{
+        width:20%;
+    }
+
+    .mainmenu-area ul.navbar-nav li a {
+        color: #6e6a6a;
+        font-size: 8px;
+        padding: 8px 15px;
+        margin-left:10px;
+    }
+}
