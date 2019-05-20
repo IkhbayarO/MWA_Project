@@ -1,3 +1,79 @@
-<p>
-  sales-list works!
-</p>
+<div class="section-padding alice-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="section-header section-header-2 section-header-with-right-content">
+            <h2>Sales List</h2>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+          <div class="col">
+  
+            <form #validate="ngForm">
+                <div *ngFor="let sales of salesList">
+                  <div class="list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="sales.image[0]" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4>{{sales.name}}</h4> 
+                        <div class="info">
+                          <span class="company"><i data-feather="briefcase">Price: {{sales.price}}</i></span>
+                          <span class="office-location"><i data-feather="map-pin">Category: {{sales.category}}</i></span>
+                          <span class="job-type full-time"><i data-feather="clock">Status: {{sales.status}}</i></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                          <div  class="buttons">
+                            <button class="button" data-toggle="modal" data-target="#apply-edit-id" (click)="editSales($event)">
+                                Edit Item
+                            </button>
+                            <!--<a href="sales.image[0]"></a>
+                              <a href="#" class="favourite"><i data-feather="heart"></i></a>cancelOrder($event) [(ngModel)]="singlePurchse"-->
+                          </div>
+                          <!--<p class="deadline">Deadline: Oct 31, 2019</p>-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>  
+            </div> 
+          </div>
+        </div>
+      </div>
+  
+   <!--<div class="row">
+        <div class="col">
+  
+          <div>
+            <div class="list">
+              <div class="thumb">
+                <a href="#">
+                  <img src="images/job/company-logo-1.png" class="img-fluid" alt="">
+                </a>
+              </div>
+              <div class="body">
+                <div class="content">
+                  <h4><a href="job-details.html">Designer Required</a></h4>
+                  <div class="info">
+                    <span class="company"><a href="#"><i data-feather="briefcase"></i>Theoreo</a></span>
+                    <span class="office-location"><a href="#"><i data-feather="map-pin"></i>New York City</a></span>
+                    <span class="job-type full-time"><a href="#"><i data-feather="clock"></i>Full Time</a></span>
+                  </div>
+                </div>
+                <div class="more">
+                  <div class="buttons">
+                    <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                    <a href="#" class="favourite"><i data-feather="heart"></i></a>
+                  </div>
+                  <p class="deadline">Deadline: Oct 31, 2019</p>
+                </div>
+              </div>
+            </div>
+          </div>-->
+  

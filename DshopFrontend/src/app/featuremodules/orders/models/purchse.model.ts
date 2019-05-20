@@ -1,7 +1,8 @@
 
 export class Purchse {
-    id: string;
+    purchseId: string;
     userId: string;
+    productId: string;
     name: string;
     category: string;
     price: number;
