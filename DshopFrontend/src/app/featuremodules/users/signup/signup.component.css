@@ -19,9 +19,12 @@
   
      ========================================================================== */
   
-     /* input.ng-invalid {
+     input.ng-invalid {
       border: 1px solid red;
-    } */
+    }
+    input.ng-valid{
+      border:1px solid blue
+    }
 
      .row {
     display: -webkit-box;

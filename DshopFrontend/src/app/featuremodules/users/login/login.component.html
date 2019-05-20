@@ -1,1 +1,54 @@
-<p></p>
+
+
+  <div class="page-wrapper bg-gra-02 p-t-45 p-b-53">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">Dshop Login Form</h2>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+                  
+                  <div class="form-row form-group">
+                      <div class="name">Email</div>
+                      <div class="value">
+                          <div class="input-group">
+                              <input [(ngModel)]="user.email" #email="ngModel" [ngClass]="{'is-invalid':f.submitted && email.Invalid}" 
+                              required placeholder="email" class="input--style-5" type="email" name="email" >
+                          </div>
+                      </div>
+                      <div class="invalid-feedback">
+                          <div>Email Required</div>
+                          <div>Email Invalid</div>
+                      </div>
+                  </div>
+
+                  <div class="form-row form-group">
+                      <div class="name">Password</div>
+                      <div class="value">
+                          <div class="input-group">
+                              <input [(ngModel)]="user.password" #password="ngModel" [ngClass]="{'is-invalid':f.submitted && password.Invalid}" 
+                              required minlength="6" placeholder="password" class="input--style-5" type="password" name="password" >
+                          </div>
+                      </div>
+                      <div class="invalid-feedback">
+                          <div>Password Required</div>
+                          <div>Password Invalid</div>
+                      </div>
+                  </div>
+                   
+                    <div class="group-form loginBtn">
+                        <button  class="btn btn--radius-2 btn--red" type="submit" [disabled]="!f.valid">Login</button>
+                        <!-- <button  class="btn btn--radius-2 btn--red" type="submit" >Register</button> -->
+                    </div>
+
+                </form>
+
+             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
