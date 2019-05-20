@@ -19,7 +19,7 @@ serverUrl:string = "http://localhost:3000/users/login"
 
   onSubmit(f){
     this.service.loginUser(this.serverUrl,f.value)
-    console.log(f.value)
+    // console.log(f.value)
   }
 
 }
