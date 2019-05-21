@@ -8,8 +8,6 @@ import { CategoryComponent } from './category/category.component';
 import { PaymentComponent } from './payment/payment.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
-import { LoginManagerDirective } from './login-manager.directive';
 import { JwtModule } from '@auth0/angular-jwt';
 import {HTTP_INTERCEPTORS} from '@angular/common/http'
 import {AuthInterceptor} from './interceptors/auth-interceptor.service'
@@ -18,21 +16,16 @@ export function tokenGetter() {
 
   return localStorage.getItem('token');
 }
-=======
 import {ProductListComponent} from "./product-list/product-list.component";
->>>>>>> 742f160af521465935e8239ca323b55ce9cc8f02
+import { NotFound404Component } from './not-found404/not-found404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
     PaymentComponent,
-<<<<<<< HEAD
-    LoginManagerDirective,
-  
-=======
-    ProductListComponent
->>>>>>> 742f160af521465935e8239ca323b55ce9cc8f02
+    ProductListComponent,
+    NotFound404Component
   ],
   imports: [
     BrowserModule,
