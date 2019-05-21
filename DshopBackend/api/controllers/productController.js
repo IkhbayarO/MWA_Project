@@ -111,9 +111,9 @@ exports.updateProduct = (req, res) => {
         description: req.body.description
     };
 
-    users.findOneAndUpdate({'products._id': pId}, {'products.$': product}, (err) => {
+    users.findOneAndUpdate({'products._id': pId}, {'products.$': product}, (err, p) => {
         try {
-            res.status(201).json({message: "success"});
+            res.status(201).json({message: "success", data: p});
         } catch (e) {
             throw e;
             res.status(500).json({message: "fail"});
