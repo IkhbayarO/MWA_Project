@@ -13,7 +13,7 @@ export class User{
     public products:Array<object>
     private password:string
     
-    constructor(public firstname:String,public lastname:String,public username:String,public email:String,public phone:String,){
+    constructor(public firstname:String,public lastname:String,public username:String,public email:String,public phone:String,public password:string){
 
     }
 

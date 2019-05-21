@@ -17,19 +17,20 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     allProduct: Product[] = [];
     productCategory: Product[] = [];
-
+readParam(){
+    this.subscription = this.route.params.subscribe((params: any) => {
+        this.id = params['id'];
+    })
+}
 
     constructor(
         private productService: ProductServiceService,
         private route: ActivatedRoute, private router: Router) {
-        this.subscription = route.params.subscribe((params: any) => {
-            this.id = params['id'];
-        })
     }
 
     ngOnInit() {
+        this.readParam();
         this.getProductDetail(this.id);
-
     }
 
 
@@ -37,7 +38,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         const x = this.productService.getProductDetail(id).subscribe((prod) => {
             //uncomment it when server starts
             let p = prod.data;
-            console.log(prod)
+            console.log(prod);
             this.productDet = new Product(p._id, p.name, p.category, p.price, p.isAvailable, p.image, p.description);
             localStorage.setItem('relatedCat',p.category.toString().toLowerCase().trim());
             console.log("+++++++++++" + this.name);
@@ -64,8 +65,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
     getAllProducts() {
         this.productService.getProductList().subscribe(res => {
-
-
             res.forEach(p => {
                 let prod = new Product(p._id, p.name, p.category, p.price, p.isAvailable, p.image, p.description);
                 this.allProduct.push(prod);
@@ -85,8 +84,10 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
 
     goDetails(e){
-        alert(e)
+        alert(e);
         this.router.navigate(['products','get', e])
+            .then(_=> this.readParam())
+            .then(_=> this.getProductDetail(this.id))
     }
 
     ngOnDestroy(): void {

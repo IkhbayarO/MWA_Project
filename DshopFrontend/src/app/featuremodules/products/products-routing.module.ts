@@ -15,7 +15,7 @@ const routes: Routes = [
       {path: "update/:id", component: EditProductComponent,canActivate:[AuthGuard]},
       {path: "add/new", component: AddProductComponent,canActivate:[AuthGuard]},
       {path: "cat/:name", component: ProductByCatComponent},
-      {path: "buy/checkout", component: CheckoutComponent},
+      {path: "buy/checkout", component: CheckoutComponent,canActivate:[AuthGuard]},
       { path:'',component:ProductListComponent},
       {path:'**',component:NotFound404Component}
   ];

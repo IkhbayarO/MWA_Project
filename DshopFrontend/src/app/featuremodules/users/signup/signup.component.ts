@@ -27,8 +27,9 @@ isAdded:boolean
 
   onSubmit(form) {
     
-   this.temp = form.value; 
-   this.newUser = new User(this.temp.firstname,this.temp.lastname,this.temp.username,this.temp.email,this.temp.phone)
+   this.temp = form.value;
+
+   this.newUser = new User(this.temp.firstname,this.temp.lastname,this.temp.username,this.temp.email,this.temp.phone,this.temp.password)
    this.isAdded = this.service.createUser(this.serveUrl, this.newUser)
 
    if(this.isAdded){
