@@ -1,0 +1,108 @@
+
+
+<div class="page-wrapper bg-gra-02 p-t-45 p-b-53">
+  <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+      <div class="card-heading">
+        <h2 class="title">Checkout Form</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onAdd(p)" #p="ngForm" novalidate>
+
+          <p>Product information:</p>
+          <div class="form-row form-group">
+            <div class="name">Product name: </div>
+            <div class="value">
+              {{product.name}}
+            </div>
+          </div>
+
+
+
+
+          <div class="form-row form-group">
+            <div class="name">Product price: </div>
+            <div class="value">
+             {{product.price}}
+            </div>
+          </div>
+
+
+          <p>Please fill in your shipping information:</p>
+          <div class="form-row form-group">
+            <div class="name">State</div>
+            <div class="value">
+              <div class="input-group">
+                <input [(ngModel)]="address.state" #state="ngModel" [ngClass]="{'is-invalid':p.submitted && state.Invalid}"
+                       required placeholder="state" class="input--style-5" type="text" name="state" >
+              </div>
+            </div>
+            <div  class="invalid-feedback">
+              <div>State Required</div>
+            </div>
+
+          </div>
+
+          <div class="form-row form-group">
+            <div class="name">City</div>
+            <div class="value">
+              <div class="input-group">
+                <input [(ngModel)]="address.city" #city="ngModel" [ngClass]="{'is-invalid':p.submitted && city.Invalid}"
+                       required placeholder="city" class="input--style-5" type="text" name="city" >
+              </div>
+            </div>
+            <div class="invalid-feedback">
+              <div>City Required</div>
+            </div>
+          </div>
+
+
+          <div class="form-row form-group">
+            <div class="name">Street</div>
+            <div class="value">
+              <div class="input-group">
+                <input [(ngModel)]="address.street" #street="ngModel" [ngClass]="{'is-invalid':p.submitted && street.Invalid}"
+                       required placeholder="street" class="input--style-5" type="text" name="street" >
+              </div>
+            </div>
+            <div class="invalid-feedback">
+              <div>Street Required</div>
+            </div>
+          </div>
+
+
+
+
+
+          <div class="form-row form-group">
+            <div class="name">Payment</div>
+            <div class="value">
+              <div class="input-group">
+
+                <select [(ngModel)]="payment.name" #payment="ngModel" [ngClass]="{'is-invalid':p.submitted && payment.Invalid}"
+                        required class="input--style-5" type="text" name="payment">
+                  <option value="Visa">Visa</option>
+                  <option value="Mastercard">Master Card</option>
+                  <option value="Paypal">PayPal</option>
+                </select>
+              </div>
+            </div>
+            <div class="invalid-feedback">
+              <div>Payment Required</div>
+            </div>
+          </div>
+
+          <div class="group-form">
+            <button  class="btn btn--radius-2 btn--red" type="submit" [disabled]="!p.valid">Confirm</button>
+            <!-- <button  class="btn btn--radius-2 btn--red" type="submit" >Register</button> -->
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
