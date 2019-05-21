@@ -76,7 +76,7 @@ var userSchema = new mongoose.Schema({
         }
     ],
     products:[
-        {  _id: ObjectId,
+        {   id: ObjectId,
             name: {type:String ,required:true},
             category: {type:String ,required:true},
             price: {type:Number ,required:true},
@@ -89,6 +89,7 @@ var userSchema = new mongoose.Schema({
 
 });
 
+userSchema.index({products:1});
 
 module.exports = mongoose.model('User',userSchema)
 

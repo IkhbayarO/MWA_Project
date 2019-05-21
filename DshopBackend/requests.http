@@ -1,0 +1,31 @@
+###
+
+POST http://localhost:3000/users/signup HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstname":"Asaad",
+    "lastname":"Saad",
+    "username":"asaad",
+    "phone":"3454546593",
+    "email":"asaad@mum.edu",
+    "password":"potato"
+}
+
+
+###
+GET http://localhost:3000/users HTTP/1.1
+
+
+###
+POST http://localhost:3000/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"asaad@mum.edu",
+    "password":"potato"
+}
+
+###
+
+http://localhost:3000/products

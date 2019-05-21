@@ -1,4 +1,7 @@
 var User = require('../models/usersModel')
+var jwt = require('jsonwebtoken')
+var signature  = require('../middlewares/auth/sign')
+const key ="potato2020182"
 
 exports.getAll = (req,res)=>{
 
@@ -99,7 +102,8 @@ exports.checkEmail = (req,res)=>{
 
 
 exports.login = (req,res)=>{
-   console.log(req.body.data)
+   
+ 
    let login = req.body.data.email
    let pwd = req.body.data.password
    console.log(pwd)
@@ -109,8 +113,25 @@ exports.login = (req,res)=>{
       
       try {
           console.log(data.length)
-         if(data.length>0)
-         res.status(200).json({message:'success',data:data})
+         if(data.length>0){
+            console.log("......"+data[0].firstname)
+            let user = {
+              firstname:data[0].firstname,
+              lastname:data[0].lastname,
+              username:data[0].username,
+              email:data[0].email,
+              _id:data._id,
+              address:data[0].address
+            }
+
+            // console.log("........"+JSON.stringify(user)+"........")
+            jwt.sign({user},'mwa',{expiresIn: '30day'}, (err,token)=>{
+              
+               res.status(200).json({message:'success',token:token})
+           })
+            
+         }
+         
          else
          res.status(200).json({message:'fail'})
 

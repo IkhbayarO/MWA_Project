@@ -32,14 +32,15 @@ return this.isAdded;
   }
 
   loginUser(serverUrl,user){
-    alert('going to check')
+   
     this.http.post(serverUrl,{data:user}).subscribe(res=>{
        
       if(res.message=='success'){
-        console.log(res.data[0])
-        // localStorage.setItem('user',JSON.stringify(res.data))
+         localStorage.setItem('token',JSON.stringify(res.token))
         this.isLogged=true
+       setTimeout(()=>{
         this.router.navigate([''])
+       },0)
        }else{
 
         this.isLogged=false
