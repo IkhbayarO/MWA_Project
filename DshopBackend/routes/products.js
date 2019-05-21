@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var productController = require('../api/controllers/productController');
+var verifyToken = require('../api/middlewares/auth/verifyToken')
 
 //1. get all products (done)
 router.get('/', (req, res)=> {
@@ -26,12 +27,12 @@ router.get("/:id", (req, res)=>{
 });
 
 //5. update product
-router.put("/:id", (req, res)=>{
+router.put("/:id", verifyToken(), (req, res)=>{
    productController.updateProduct(req, res);
 });
 
 //6. add product
-router.post("/add/:id", (req, res)=>{
+router.post("/add/:id", verifyToken(), (req, res)=>{
    productController.addProduct(req, res);
 });
 

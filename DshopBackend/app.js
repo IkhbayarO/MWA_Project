@@ -15,7 +15,7 @@ var purchasesRouter = require('./routes/purchases')
 var sellsRouter = require('./routes/sells')
 var categoriesRouter = require('./routes/categories')
 var paymentsRouter = require('./routes/payments')
-var dbConnector = require('./api/middlewares/dbConnection');
+
 
 var app = express();
 
@@ -37,9 +37,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productsRouter)
 app.use('/carts',cartsRouter)
-app.use('/purchases',purchasesRouter)
+app.use('/purchases', purchasesRouter)
 app.use('/sells',sellsRouter)
-app.use('/payments',paymentsRouter)
+app.use('/payments', paymentsRouter)
 app.use('/categories',categoriesRouter)
 
 

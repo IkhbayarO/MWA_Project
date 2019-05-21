@@ -8,12 +8,23 @@ import { CategoryComponent } from './category/category.component';
 import { PaymentComponent } from './payment/payment.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginManagerDirective } from './login-manager.directive';
+import { JwtModule } from '@auth0/angular-jwt';
+import {HTTP_INTERCEPTORS} from '@angular/common/http'
+import {AuthInterceptor} from './interceptors/auth-interceptor.service'
+
+export function tokenGetter() {
+
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
-    PaymentComponent
+    PaymentComponent,
+    LoginManagerDirective,
+  
   ],
   imports: [
     BrowserModule,
@@ -22,10 +33,17 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter:tokenGetter,
+        skipWhenExpired: true
+
+      }
+    })
 
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi:true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

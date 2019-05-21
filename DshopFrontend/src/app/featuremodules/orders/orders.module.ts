@@ -9,15 +9,17 @@ import { SalesListComponent } from './sales-list/components/sales-list.component
 
 import { OrdersService } from './services/orders.service';
 
+
 @NgModule({
   declarations: [
     SalesListComponent,
-    PurchaseListComponent
+    PurchaseListComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     OrdersRoutingModule
+   
   ],
   providers: [
     OrdersService

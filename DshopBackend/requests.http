@@ -25,3 +25,7 @@ Content-Type: application/json
     "email":"asaad@mum.edu",
     "password":"potato"
 }
+
+###
+
+http://localhost:3000/products
