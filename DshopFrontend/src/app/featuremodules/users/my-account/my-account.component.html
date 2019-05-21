@@ -7,30 +7,38 @@
     <img height="300" width="300" src="https://thumbs.dreamstime.com/b/profile-icon-male-avatar-portrait-casual-person-silhouette-face-flat-design-vector-46846371.jpg" class="img-responsive" width="100" height="100" />
   </div>
   <div class="col-md-8 profile-info">
-    <div class="user-name">Abd Alrahman Fani</div>
-    <div class="user-mail"><i>email@dmain.com</i></div>
-    <div class="user-company">SYRIAN ARTS</div>
+    <div class="user-name">{{user.firstname}} {{user.lastname}}</div>
+    <div class="user-mail"><i>{{user.email}}</i></div>
+    <!-- <div class="user-company">{{user.username}}</div> -->
   </div>
 </div>
   <br/><br/>
   <div class="row more-info">
   <div class="col-md-5 infoItem">
     <div><b>Username</b></div>
-    <p>Customer</p>
+    <p>{{user.username}}</p>
   </div>
     <div class="col-md-5 infoItem">
       <div><b>Phone</b></div>
-    <p>654675675</p>
+    <p>{{user.phone}}</p>
   </div>
   </div>
    <div class="row more-info">
   <div class="col-md-5 infoItem">
     <div><b>Type</b></div>
-    <p>Customer</p> <!-- </3 :( -->
+    <p>{{user.type}}</p> <!-- </3 :( -->
   </div>
     <div class="col-md-5 infoItem">
       <div><b>Address</b></div>
-    <p>Iowa, fsjkfl</p>
+      <span *ngIf="user.address==null;then condition2 else condition1"></span>
+      <ng-template #condition1>
+            <p>{{user.address.state}} - {{user.address.city}} {{user.address.street}} {{user.address.zipcode}}</p>
+      </ng-template>
+
+      <ng-template>
+          <p>None..</p>
+      </ng-template>
+    
   </div>
   </div>
   <br/>

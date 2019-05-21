@@ -57,13 +57,17 @@ exports.getProductByCategory = (req, res) => {
 //3. get products by user id
 exports.getProductsByUserId = (req, res) => {
     var id = req.params.id;
-    users.find().where(_id).equals(id).select('products').exec((err, product) => {
-        try {
-            res.status(200).json({message: "success", data: product})
-        } catch (e) {
-            throw e;
-            res.status(400).json({message: "fail"});
+    users.find().where('_id').equals(id).select('products').exec((err, user) => {
+        if(err){
+           throw err
+        }else{
+
+           
+            
+            res.status(200).json({message: "success",data: user[0].products})
+        
         }
+           
     });
 };
 
