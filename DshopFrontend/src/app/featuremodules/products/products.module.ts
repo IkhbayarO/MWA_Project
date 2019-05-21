@@ -12,18 +12,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
-<<<<<<< HEAD
-  declarations: [
-    ProductListComponent, 
-    ProductDetailsComponent, 
-    AddProductComponent, 
-    EditProductComponent,
-   
-  ],
-=======
   declarations: [ProductListComponent, ProductDetailsComponent, AddProductComponent,
     EditProductComponent, ProductByCatComponent, CheckoutComponent],
->>>>>>> 742f160af521465935e8239ca323b55ce9cc8f02
   imports: [
     CommonModule,
     ProductsRoutingModule,
