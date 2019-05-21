@@ -7,14 +7,20 @@ import { SignupComponent } from './signup/signup.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 
+
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [
+    LoginComponent, 
+    SignupComponent,
+ 
+  ],
   imports: [
     CommonModule,
     UsersRoutingModule,
     AngularFontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+   
   ]
 })
 export class UsersModule { }

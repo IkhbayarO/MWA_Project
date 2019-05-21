@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 var userController = require('../api/controllers/userController');
 
+var verifyToken = require('../api/middlewares/auth/verifyToken')
+
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', verifyToken(),  function(req, res, next) {
   userController.getAll(req,res)
 });
 
