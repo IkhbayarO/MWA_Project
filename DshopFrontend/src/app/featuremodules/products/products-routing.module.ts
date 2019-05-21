@@ -7,14 +7,17 @@ import {AddProductComponent} from "./add-product/add-product.component";
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import {ProductByCatComponent} from "./product-by-cat/product-by-cat.component";
 import {CheckoutComponent} from "./checkout/checkout.component";
+import { NotFound404Component } from './not-found404/not-found404.component';
 
 const routes: Routes = [
-      { path:'',component:ProductListComponent},
-      {path: ":id", component: ProductDetailsComponent},
+     
+      {path: "get/:id", component: ProductDetailsComponent},
       {path: "update/:id", component: EditProductComponent,canActivate:[AuthGuard]},
       {path: "add/new", component: AddProductComponent,canActivate:[AuthGuard]},
       {path: "cat/:name", component: ProductByCatComponent},
-      {path: "buy/checkout", component: CheckoutComponent}
+      {path: "buy/checkout", component: CheckoutComponent},
+      { path:'',component:ProductListComponent},
+      {path:'**',component:NotFound404Component}
   ];
 
 @NgModule({

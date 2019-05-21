@@ -17,13 +17,15 @@ export function tokenGetter() {
   return localStorage.getItem('token');
 }
 import {ProductListComponent} from "./product-list/product-list.component";
+import { NotFound404Component } from './not-found404/not-found404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
     PaymentComponent,
-    ProductListComponent
+    ProductListComponent,
+    NotFound404Component
   ],
   imports: [
     BrowserModule,

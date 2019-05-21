@@ -24,11 +24,7 @@ export class AppComponent implements OnInit,OnChanges{
 
   
 
-  logout(){
-   localStorage.removeItem('token')
-
-   this.router.navigate([''])
-  }
+ 
 
 
 }

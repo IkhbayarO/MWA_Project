@@ -86,7 +86,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
     goDetails(e){
         alert(e)
-        this.router.navigate(['products', e])
+        this.router.navigate(['products','get', e])
     }
 
     ngOnDestroy(): void {
