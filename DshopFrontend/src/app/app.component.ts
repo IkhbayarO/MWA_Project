@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import {JwtHelperService } from '@auth0/angular-jwt'
 import { Router } from '@angular/router';
+import { TokenReaderService } from './token-reader.service';
 
 @Component({
   selector: 'app-root',
@@ -10,21 +11,20 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit,OnChanges{
   title = 'Dshop';
   user:any;
-  constructor(public helper:JwtHelperService,public router:Router){}
+  constructor(public tokenService:TokenReaderService,public router:Router){}
 
   ngOnInit(){
-    const token = localStorage.getItem('token');
-    const decodedToken = this.helper.decodeToken(token)
-    this.user = decodedToken.user
-    console.log(this.user)
+    this.user = this.tokenService.getLoggedUserInfo()
+    alert(this.user.id)
   }
   ngOnChanges(){
+    
     console.log("Changes happened")
   }
 
   
 
- 
+  
 
 
 }

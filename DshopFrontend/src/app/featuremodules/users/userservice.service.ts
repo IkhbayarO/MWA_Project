@@ -51,4 +51,9 @@ return this.isAdded;
     })
 return this.loginUser
   }
+
+  getproductByUser(serverUrl):any{
+
+   
+  }
 }

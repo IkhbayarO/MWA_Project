@@ -119,10 +119,14 @@ exports.login = (req,res)=>{
               firstname:data[0].firstname,
               lastname:data[0].lastname,
               username:data[0].username,
+              phone:data[0].phone,
+              type:data[0].type,
               email:data[0].email,
-              _id:data._id,
+              id:data[0]._id,
               address:data[0].address
             }
+
+            console.log(data[0])
 
             // console.log("........"+JSON.stringify(user)+"........")
             jwt.sign({user},'mwa',{expiresIn: '30day'}, (err,token)=>{
