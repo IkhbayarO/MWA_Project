@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductServiceService} from '../product-service.service';
-import {Product} from '../../../models/Product';
+import {ProductServiceService} from '../featuremodules/products/product-service.service';
+import {Product} from '../models/Product';
 import {Router} from "@angular/router";
 @Component({
   selector: 'app-product-list',
@@ -24,8 +24,6 @@ export class ProductListComponent implements OnInit {
 
   getAllProducts() {
   this.productService.getProductList().subscribe(res=>{
-
-
 
 
     res.forEach(p=>{

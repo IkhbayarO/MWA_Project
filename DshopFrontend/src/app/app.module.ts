@@ -8,12 +8,14 @@ import { CategoryComponent } from './category/category.component';
 import { PaymentComponent } from './payment/payment.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {ProductListComponent} from "./product-list/product-list.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoryComponent,
-    PaymentComponent
+    PaymentComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

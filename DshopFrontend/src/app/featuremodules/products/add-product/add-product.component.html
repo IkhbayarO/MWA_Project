@@ -1,3 +1,96 @@
-<p>
-  add-product works!
-</p>
+
+
+<div class="page-wrapper bg-gra-02 p-t-45 p-b-53">
+  <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+      <div class="card-heading">
+        <h2 class="title">Dshop Add Product Form</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onAdd(p)" #p="ngForm" novalidate>
+
+          <div class="form-row form-group">
+            <div class="name">Product Name</div>
+            <div class="value">
+              <div class="input-group">
+                <input [(ngModel)]="product.name" #name="ngModel" [ngClass]="{'is-invalid':p.submitted && name.Invalid}"
+                       required placeholder="product name" class="input--style-5" type="text" name="name" >
+              </div>
+            </div>
+            <div  class="invalid-feedback">
+              <div>Product Name Required</div>
+            </div>
+            {{product|json}}
+            {{name.className}}
+          </div>
+
+          <div class="form-row form-group">
+            <div class="name">Product Category</div>
+            <div class="value">
+              <div class="input-group">
+                <input [(ngModel)]="product.category" #category="ngModel" [ngClass]="{'is-invalid':p.submitted && category.Invalid}"
+                       required placeholder="category" class="input--style-5" type="text" name="category" >
+              </div>
+            </div>
+            <div class="invalid-feedback">
+              <div>Lastname Required</div>
+            </div>
+          </div>
+
+
+          <div class="form-row form-group">
+            <div class="name">Product Price</div>
+            <div class="value">
+              <div class="input-group">
+                <input [(ngModel)]="product.price" #price="ngModel" [ngClass]="{'is-invalid':p.submitted && price.Invalid}"
+                       required placeholder="product price" class="input--style-5" type="text" name="price" >
+              </div>
+            </div>
+            <div class="invalid-feedback">
+              <div>Product Price Required</div>
+            </div>
+          </div>
+
+          <div class="form-row form-group">
+            <div class="name">Product Image</div>
+            <div class="value">
+              <div class="input-group">
+                <input  (change)="onUploadImage($event)"
+                        style="border: none;background: white" [(ngModel)]="product.image" #image="ngModel" [ngClass]="{'is-invalid':p.submitted && image.Invalid}"
+                       required  class="input--style-5" type="file" name="image" >
+              </div>
+            </div>
+            <div class="invalid-feedback">
+              <div>Product Image Required</div>
+            </div>
+          </div>
+
+
+
+          <div class="form-row form-group">
+            <div class="name">Description</div>
+            <div class="value">
+              <div class="input-group">
+                <input [(ngModel)]="product.description" #description="ngModel" [ngClass]="{'is-invalid':p.submitted && description.Invalid}"
+                       required placeholder="description" class="input--style-5" type="text" name="description" >
+              </div>
+            </div>
+            <div class="invalid-feedback">
+              <div>Description Required</div>
+            </div>
+          </div>
+
+          <div class="group-form">
+            <button  class="btn btn--radius-2 btn--red" type="submit" [disabled]="!p.valid">Add Product</button>
+            <!-- <button  class="btn btn--radius-2 btn--red" type="submit" >Register</button> -->
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

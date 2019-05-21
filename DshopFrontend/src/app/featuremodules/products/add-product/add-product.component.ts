@@ -1,8 +1,10 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ProductServiceService} from '../product-service.service';
+import {Product} from '../../../models/Product';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from "rxjs";
-import {Product} from "../../../models/Product";
+import {User} from "../../users/model/User";
+
 
 @Component({
     selector: 'app-add-product',
@@ -10,24 +12,22 @@ import {Product} from "../../../models/Product";
     styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-    id: string;
-    private subscription: Subscription;
+    product: any;
+    temp: any={};
+    serverUrl:string='http://localhost:3000/products/add/new';
+    selectedFile: object;
 
-    constructor(
-        private productService: ProductServiceService,
-        private route: ActivatedRoute
-    ) {
-        this.subscription = route.params.subscribe((params: any) => {
-            this.id = params['id'];
-        });
+    constructor(private productService: ProductServiceService) {}
+    ngOnInit() {}
+
+    onUploadImage(event){
+        this.selectedFile=event.target.file[0];
     }
 
-    ngOnInit() {
-        this.addProduct(this.id);
+    onAdd(form) {
+      this.temp=form.value();
+      this.temp.image=this.selectedFile;
+      this.productService.addProduct(this.serverUrl, this.temp);
     }
-
-    addProduct(id: String) {
-        let prod=this.productService.addProduct(id).subscribe()
-    };
 
 }
