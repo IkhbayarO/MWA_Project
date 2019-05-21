@@ -7,9 +7,10 @@ export class LoginManagerDirective implements OnInit {
 
   constructor(private element:ElementRef) { }
 
-   
+
 
   ngOnInit(){
+<<<<<<< HEAD
       const token = localStorage.getItem('token')
     console.log(token)
     if(token!=null){
@@ -28,8 +29,16 @@ export class LoginManagerDirective implements OnInit {
 
         this.element.nativeElement.style.display='none'
 
-    }else{
+=======
+    console.log(localStorage.getItem('token'))
+    if(localStorage.getItem('token')!=null){
 
+      this.element.nativeElement.style.display='none'
+>>>>>>> 38be8c3332d546424c3b81aa0e86a09d54429c1c
+    }else{
+      this.element.nativeElement.style.display='inline-block'
+
+<<<<<<< HEAD
         this.element.nativeElement.style.display='inline-block'
     //   if(this.element.nativeElement.id=="loginNav"){
     //     this.element.nativeElement.style.display='inline-block'
@@ -42,6 +51,9 @@ export class LoginManagerDirective implements OnInit {
     //  if(this.element.nativeElement.id=="navItemname"){
     //   this.element.nativeElement.style.display='none'
     // }
+=======
+
+>>>>>>> 38be8c3332d546424c3b81aa0e86a09d54429c1c
     }
   //   console.log(this.element.nativeElement.style)
   // this.element.nativeElement.style.display='none'

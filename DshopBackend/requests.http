@@ -14,7 +14,7 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/users HTTP/1.1
+GET http://localhost:3000/products/user/5ce1d78ada829c197d9a5a69 HTTP/1.1
 
 
 ###
