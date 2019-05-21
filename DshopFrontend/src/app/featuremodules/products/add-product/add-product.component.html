@@ -7,7 +7,7 @@
         <h2 class="title">Dshop Add Product Form</h2>
       </div>
       <div class="card-body">
-        <form (ngSubmit)="onAdd(p)" #p="ngForm" novalidate>
+        <form (ngSubmit)="onSubmit(p)" #p="ngForm" novalidate>
 
           <div class="form-row form-group">
             <div class="name">Product Name</div>
@@ -21,7 +21,7 @@
               <div>Product Name Required</div>
             </div>
             {{product|json}}
-            {{name.className}}
+
           </div>
 
           <div class="form-row form-group">
@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="invalid-feedback">
-              <div>Lastname Required</div>
+              <div>Category Required</div>
             </div>
           </div>
 
@@ -55,7 +55,7 @@
             <div class="name">Product Image</div>
             <div class="value">
               <div class="input-group">
-                <input  (change)="onUploadImage($event)"
+                <input (change)="onUploadImage($event)"
                         style="border: none;background: white" [(ngModel)]="product.image" #image="ngModel" [ngClass]="{'is-invalid':p.submitted && image.Invalid}"
                        required  class="input--style-5" type="file" name="image" >
               </div>

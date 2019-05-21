@@ -17,8 +17,8 @@ exports.getAll = (req,res)=>{
 
 exports.create = (request,response)=>{
 
-let cust = request.body
-
+let cust = request.body.data
+console.log(cust.password)
  let customer = new User({
     firstname:cust.firstname,
     lastname:cust.lastname,
@@ -31,11 +31,14 @@ let cust = request.body
  console.log(customer)
    customer.save((err)=>{
       if(err){
-       
+       throw err
          response.status(500).json({message:'fail'})
-      } 
+      }
+      else{
+          response.status(200).json({message:'success'})
+      }
 
-      response.status(200).json({message:'success'})
+
 
       // try {
       //      response.status(200).json({message:'success'})

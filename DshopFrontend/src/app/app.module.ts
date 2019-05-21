@@ -18,6 +18,7 @@ export function tokenGetter() {
 }
 import {ProductListComponent} from "./product-list/product-list.component";
 import { NotFound404Component } from './not-found404/not-found404.component';
+import {LoginManagerDirective} from "./login-manager.directive";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NotFound404Component } from './not-found404/not-found404.component';
     CategoryComponent,
     PaymentComponent,
     ProductListComponent,
-    NotFound404Component
+    NotFound404Component,
+    LoginManagerDirective
   ],
   imports: [
     BrowserModule,
