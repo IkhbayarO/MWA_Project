@@ -19,4 +19,8 @@ router.put('/', authCust(), (req, res) => {
     sellsController.update(req, res);
 });
 
+router.delete('/:userId', (req, res) => {
+    sellsController.delete(req, res);
+});
+
 module.exports = router;

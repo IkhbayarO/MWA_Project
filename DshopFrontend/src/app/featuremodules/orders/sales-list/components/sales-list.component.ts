@@ -9,10 +9,11 @@ import { Sales } from '../../models/sales.model';
 })
 export class SalesListComponent implements OnInit {
   salesList: Sales[];
-  sales: Sales;
+  salesObject: Sales;
+  length = 0;
   constructor(private ordersService: OrdersService) { 
     this.salesList = new Array<Sales>();
-    this.sales = new Sales();
+    this.salesObject = new Sales();
   }
 
   ngOnInit() {
@@ -22,17 +23,17 @@ export class SalesListComponent implements OnInit {
   public getSalesList() {
     this.ordersService.getSalesList().subscribe((res) => {
         let sales = new Sales();
-        console.log("sales list: "+res);
         for(let i=0; i<res.length; i++){
             sales.userId = res[i]._id;
             for(let j=0; j< res[i].sells.length; j++) {
+              this.length += 1; 
               sales.salesId = res[i].sells[j]._id;
               sales.productId = res[i].sells[j].product._id;
               sales.name = res[i].sells[j].product.name
               sales.category = res[i].sells[j].product.category;
               sales.price = res[i].sells[j].product.price;
               sales.isAvailable = res[i].sells[j].product.isAvailable;
-              sales.image = res[i].sells[j].product.image;
+              sales.image = res[i].sells[j].product.image[0];
               sales.description = res[i].sells[j].product.description;
               sales.date = res[i].sells[j].date;
               sales.status = res[i].sells[j].status;
@@ -46,15 +47,17 @@ export class SalesListComponent implements OnInit {
               sales.state = res[i].sells[j].customer.state;
               sales.zip = res[i].sells[j].customer.zip;
               sales.payment = res[i].sells[j].customer.payment;
+              this.salesList.push(sales);
             }
-            this.salesList.push(sales);
         }
     });
   }
 
-  public editSales(sales: Sales) {
+  public editSales(sales) {
+    console.log("object  "+ JSON.stringify(sales));
+    console.log("Selected value  "+ JSON.stringify(this.salesObject));
     this.ordersService.editSales(sales).subscribe((res) => {
-
+        console.log("Resonse: "+res);
     })
   }
 }
