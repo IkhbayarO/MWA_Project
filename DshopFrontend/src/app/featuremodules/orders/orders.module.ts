@@ -8,12 +8,13 @@ import { PurchaseListComponent } from './purchase-list/components/purchase-list.
 import { SalesListComponent } from './sales-list/components/sales-list.component';
 
 import { OrdersService } from './services/orders.service';
+import { NotFound404Component } from './not-found404/not-found404.component';
 
 
 @NgModule({
   declarations: [
     SalesListComponent,
-    PurchaseListComponent,
+    PurchaseListComponent,NotFound404Component
   ],
   imports: [
     CommonModule,
