@@ -21,4 +21,8 @@ router.put("/", (req, res) => {
     purchseController.update(req, res);
 });
 
+router.delete("/:userId", (req, res) => { 
+    purchseController.delete(req, res);
+});
+
 module.exports = router;

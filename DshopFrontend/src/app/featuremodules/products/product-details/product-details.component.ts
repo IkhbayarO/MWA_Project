@@ -37,7 +37,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         const x = this.productService.getProductDetail(id).subscribe((prod) => {
             //uncomment it when server starts
             let p = prod.data;
-            console.log(prod)
+            console.log(prod);
             this.productDet = new Product(p._id, p.name, p.category, p.price, p.isAvailable, p.image, p.description);
             localStorage.setItem('relatedCat',p.category.toString().toLowerCase().trim());
             console.log("+++++++++++" + this.name);
