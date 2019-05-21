@@ -16,6 +16,16 @@ Content-Type: 'application/json'
  }
 
 ###
+
+POST http://localhost:3000/purchases HTTP/1.1
+ 
+Content-Type: application/json
+
+ {
+   "userId" : "5ce1a0e9a75a287818d31136"
+}
+
+###
  PUT http://localhost:3000/purchases HTTP/1.1
  Content-Type: 'application/json'
 
@@ -35,3 +45,29 @@ Content-Type: 'application/json'
 ###
  GET http://localhost:3000/purchases HTTP/1.1
 
+###
+Content-Type: application/json
+POST http://localhost:3000/sells HTTP/1.1
+
+content
+{
+   "userId": "5ce19f7731ad210ee85509a6",
+    "customerId": "5ce19f7731ad210ee85509a6",
+    "productId": "5ce1a0dda75a287818d31135",
+    "name": "Samsung",
+    "category": "electronics",
+    "price": "250.6",
+    "isAvailable": "true",
+    "image": ["img.png"],
+    "description": "In good condition",
+    "status": "pending",
+    "firstName": "Hilina",
+    "lastName": "Beyene",
+    "Phone": "5153464893",
+    "email": "test@gmail.com",
+    "street": "1000 4th N",
+    "city": "Fairfield",
+    "state": "Iowa",
+    "zip": "57552",
+    "payment":"paypal"
+}

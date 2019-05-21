@@ -12,12 +12,11 @@
           <div class="col">
   
             <form #validate="ngForm">
-                <div *ngFor="let sales of salesList">
+              <div *ngIf="length !== 0">
+                <div  *ngFor="let sales of salesList">
                   <div class="list">
                     <div class="thumb">
-                      <a href="#">
-                        <img src="sales.image[0]" class="img-fluid" alt="">
-                      </a>
+                        <img src="{{sales.image}}" class="img-fluid" alt="">
                     </div>
                     <div class="body">
                       <div class="content">
@@ -27,13 +26,22 @@
                           <span class="office-location"><i data-feather="map-pin">Category: {{sales.category}}</i></span>
                           <span class="job-type full-time"><i data-feather="clock">Status: {{sales.status}}</i></span>
                         </div>
+                        <div class="info">
+                          <span class="job-type full-time"><i data-feather="clock">Description: {{sales.description}}</i></span>
+                        </div>
                       </div>
                       <div class="more">
                           <div  class="buttons">
-                            <button class="button" data-toggle="modal" data-target="#apply-edit-id" (click)="editSales($event)">
+                              <select name="singleSelect" class="button" data-toggle="modal" data-target="#apply-cancel-id"  (change)="editSales(sales)">
+                                  <option value="pending">Pending</option>
+                                  <option value="shipped">Shipped</option>
+                                  <option value="delivered">Delivered</option>
+                                  <option value="cancel">Cancel</option>
+                              </select>
+                            <!--<button class="button" data-toggle="modal" data-target="#apply-edit-id" (click)="editSales($event)">
                                 Edit Item
                             </button>
-                            <!--<a href="sales.image[0]"></a>
+                            <a href="sales.image[0]"></a>
                               <a href="#" class="favourite"><i data-feather="heart"></i></a>cancelOrder($event) [(ngModel)]="singlePurchse"-->
                           </div>
                           <!--<p class="deadline">Deadline: Oct 31, 2019</p>-->
@@ -41,11 +49,15 @@
                     </div>
                   </div>
                 </div>
-              </form>  
-            </div> 
-          </div>
-        </div>
+            </div>
+            <div *ngIf="length === 0">
+              <span>There is no sales list</span>
+            </div>
+          </form>  
+        </div> 
       </div>
+    </div>
+  </div>
   
    <!--<div class="row">
         <div class="col">

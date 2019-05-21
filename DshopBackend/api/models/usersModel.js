@@ -31,7 +31,7 @@ var userSchema = new mongoose.Schema({
     ],
     purchases:[
         {
-            _id:ObjectId,
+            _id: String,
             product:
                 {   _id: String,
                     name: String,
@@ -47,7 +47,7 @@ var userSchema = new mongoose.Schema({
     ],
     sells:[
         {
-            _id:ObjectId,
+            _id: String,
             product:
                     {   _id: String,
                         name: String,
