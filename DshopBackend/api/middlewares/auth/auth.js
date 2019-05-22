@@ -1,5 +1,6 @@
 var jwt= require('jsonwebtoken')
 const key ="potato2020182"
+var jwt_dec = require('jwt-decode')
 
 
 exports.sign = (user)=>{
@@ -15,7 +16,7 @@ exports.verifyToken =function()
 return (req,res,next)=>{
 
     //get auth header value
-const bearerHeader = req.header['authorization']
+const bearerHeader = req.header['Authorization']
 
 //check if bearer is undefined or not 
 if(typeof bearerHeader!=='undefined'){
@@ -78,4 +79,13 @@ module.exports.authAdmin = function(){
     })
 }
 
+}
+
+module.exports.getUser = ()=>{
+
+    return (req,res,next)=>{
+
+        req.loggedUser = jwt_dec.decode(req.token)
+        next()
+    }
 }

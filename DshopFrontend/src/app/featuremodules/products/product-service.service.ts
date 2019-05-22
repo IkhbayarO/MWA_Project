@@ -9,6 +9,7 @@ import {Product} from "../../models/Product";
   providedIn: 'root'
 })
 export class ProductServiceService {
+ 
   isAdded:boolean;
   constructor(public http: HttpClient, private router: Router) { }
 
@@ -21,6 +22,23 @@ export class ProductServiceService {
   //send ajax request request
   //create objet of product
   //import your product class
+
+  updateProduct(serverUrl: string, value: any) {
+   
+    this.http.put(serverUrl,{
+      data:{
+        name:value.name,
+        category:value.category,
+        price:value.price,
+        description:value.description,
+        isAvailable:value.isAvailable
+      }
+    }).subscribe((res)=>{
+      if(res.message=="success"){
+        this.router.navigate(['users','myProducts'])
+      }
+    })
+  }
 
   getProductList() {
     return this.http.get<{data: Product[]}>('http://localhost:3000/products');

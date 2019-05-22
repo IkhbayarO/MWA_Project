@@ -10,6 +10,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ProductByCatComponent} from "./product-by-cat/product-by-cat.component";
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'src/app/interceptors/auth-interceptor.service';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { NotFound404Component } from './not-found404/not-found404.component';
         ProductsRoutingModule,
         FormsModule,
         ReactiveFormsModule
-    ]
+    ],
+    providers: [{provide:HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi:true }]
 })
 export class ProductsModule { }

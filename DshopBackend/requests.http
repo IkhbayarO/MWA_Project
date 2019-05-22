@@ -29,3 +29,17 @@ Content-Type: application/json
 ###
 
 http://localhost:3000/products
+
+###
+
+PUT http://localhost:3000/users/update/address HTTP/1.1
+Content-Type: application/json
+
+{
+   "data":{
+     "street":"1000N 4th",
+    "zipcode":"52557",
+    "city":"Fairfield",
+    "state":"iowa"
+   }
+}

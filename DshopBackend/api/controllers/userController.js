@@ -3,6 +3,7 @@ var jwt = require('jsonwebtoken')
 var signature  = require('../middlewares/auth/sign')
 const key ="potato2020182"
 
+
 exports.getAll = (req,res)=>{
 
    User.find().exec((err,data)=>{
@@ -153,3 +154,26 @@ exports.login = (req,res)=>{
 
 
 
+exports.updateAddress = (req,res)=>{
+
+   const userId = "5ce1a22631ad210ee85509a8"
+   const address =req.body.data
+
+   console.log(req.customer+" req.")
+   console.log(address)
+
+   User.findOne().where('_id').equals(userId).exec((err,user)=>{
+     console.log(user._id)
+      user.address = address
+
+      user.save((err)=>{
+         if(err){
+            throw err
+         }else{
+            res.status(200).json({message:'success'})
+         }
+      })
+
+   })
+
+}

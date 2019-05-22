@@ -15,10 +15,11 @@ export class AppComponent implements OnInit,OnChanges{
 
   ngOnInit(){
     this.user = this.tokenService.getLoggedUserInfo()
-    alert(this.user.id)
+    
   }
   ngOnChanges(){
     
+    this.user = this.tokenService.getLoggedUserInfo()
     console.log("Changes happened")
   }
 

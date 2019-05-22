@@ -26,8 +26,8 @@ serverUrl = "http://localhost:3000/products/user/5ce19f7731ad210ee85509a6"
 
 
   goDetails(prod){
-    
-    this.router.navigate(['users','editProduct',prod._id])
+    localStorage.setItem('prodTochange',JSON.stringify(prod))
+    this.router.navigate(['users','editProduct'])
   }
 
 }

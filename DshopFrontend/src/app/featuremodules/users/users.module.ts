@@ -11,6 +11,8 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { MyProductDetailsComponent } from './my-product-details/my-product-details.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'src/app/interceptors/auth-interceptor.service';
 
 
 
@@ -27,6 +29,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     ReactiveFormsModule,
     FormsModule,
    
-  ]
+  ],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi:true }]
 })
 export class UsersModule { }

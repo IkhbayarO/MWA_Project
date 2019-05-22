@@ -52,22 +52,6 @@
             </div>
   
             <div class="form-row form-group">
-              <div class="name">Product Image</div>
-              <div class="value">
-                <div class="input-group">
-                  <input  (change)="onUploadImage($event)"
-                          style="border: none;background: white" [(ngModel)]="product.image" #image="ngModel" [ngClass]="{'is-invalid':p.submitted && image.Invalid}"
-                         required  class="input--style-5" type="file" name="image" >
-                </div>
-              </div>
-              <div class="invalid-feedback">
-                <div>Product Image Required</div>
-              </div>
-            </div>
-  
-  
-  
-            <div class="form-row form-group">
               <div class="name">Description</div>
               <div class="value">
                 <div class="input-group">
@@ -79,6 +63,21 @@
                 <div>Description Required</div>
               </div>
             </div>
+
+            <div class="form-row form-group">
+                <div class="name">IsAvailbale</div>
+                <div class="value">
+                  <div class="input-group">
+                    <select [(ngModel)]="selectedValue" name="IsAvailbale" #description="ngModel" [ngClass]="{'is-invalid':p.submitted && description.Invalid}">
+                      <option *ngFor='let c of avOption' [ngValue]="c.name">{{c.name}}</option>
+                      
+                    </select>
+                  </div>
+                </div>
+                <div class="invalid-feedback">
+                    <div>Description Required</div>
+                  </div>
+              </div>
   
             <div class="group-form">
               <button  class="btn btn--radius-2 btn--red" type="submit" [disabled]="!p.valid">Add Product</button>
