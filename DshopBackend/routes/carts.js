@@ -9,11 +9,11 @@ var verifyToken = require('../api/middlewares/auth/verifyToken')
 //router.use(verifyToken())
 
 //your codes here
-router.get("/",(req,res)=>{
+router.get("/:id",(req,res)=>{
     cartController.get(req, res);
 });
 
-router.post("/",(req,res) => {
+router.post("/:id",(req,res) => {
     cartController.create(req, res);
 });
 

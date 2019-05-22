@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserserviceService } from '../userservice.service';
 import { Router } from '@angular/router';
+import {TokenReaderService} from "../../../token-reader.service";
 
 
 @Component({
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
 })
 export class MyProductsComponent implements OnInit {
 productList:any=[]
-serverUrl = "http://localhost:3000/products/user/5ce19f7731ad210ee85509a6"
+serverUrl = "http://localhost:3000/products/user/"
 
-  constructor(public http:HttpClient,public userService:UserserviceService,public router:Router) { }
+  constructor(public http:HttpClient,public userService:UserserviceService,public router:Router,public tokenReader:TokenReaderService) { }
 
   ngOnInit() {
-
-    this.http.get(this.serverUrl).subscribe(res=>{
+    let user = this.tokenReader.getLoggedUserInfo()
+    this.http.get(this.serverUrl+""+user.id).subscribe(res=>{
       console.log(res.data)
       this.productList = res.data
    })

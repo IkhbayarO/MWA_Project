@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { CartService } from '../service/cart.service';
 import { Cart } from '../model/cart.model';
+import {TokenReaderService} from "../../../token-reader.service";
 
 @Component({
     selector: 'app-cart',
@@ -15,11 +16,11 @@ export class CartComponent implements OnInit{
     cartCheckOut: Cart;
     cartDelete: Cart;
     isThereList: boolean;
-    constructor(private cartService: CartService, private _router: Router) {
+    constructor(private cartService: CartService, private _router: Router,public tokenReader:TokenReaderService) {
         this.cartList = new Array<Cart>();
         this.cartCheckOut = new Cart();
         this.cartDelete = new Cart();
-        this.isThereList = false;
+        this.isThereList = true;
     }
 
     ngOnInit() {
@@ -27,28 +28,12 @@ export class CartComponent implements OnInit{
     }
 
     public getCartList() {
-        this.cartService.getCartList().subscribe((res) => {
-            this.reset();
-            let addCart = new Cart();
-            let datePipe = new DatePipe('en-US');
-            for(let i=0; i<res.length; i++){
-                addCart.userId = res[i]._id;
-                for(let j=0; j<res[i].cart.length; j++){
-                    this.isThereList = true;
-                    addCart.cartId = res[i].cart[j]._id;
-                    addCart.productId = res[i].cart[j].product._id;
-                    addCart.name = res[i].cart[j].product.name;
-                    addCart.category = res[i].cart[j].product.category;
-                    addCart.price = res[i].cart[j].product.price;
-                    addCart.isAvailable = res[i].cart[j].product.isAvailable;
-                    addCart.imageString = res[i].cart[j].product.image[0];
-                    addCart.image = res[i].cart[j].product.image;
-                    addCart.description = res[i].cart[j].product.description
-                    addCart.dateString = datePipe.transform(res[i].cart[j].date, 'dd/MM/yyyy');
-                    addCart.date = res[i].cart[j].date;
-                    this.cartList.push(addCart);
-                }
-            }
+        let user = this.tokenReader.getLoggedUserInfo()
+        this.cartService.getCartList(user.id).subscribe((res) => {
+
+            this.cartList.push(...res.data[0].cart)
+            console.log(res.data[0].cart)
+
         });
     }
 

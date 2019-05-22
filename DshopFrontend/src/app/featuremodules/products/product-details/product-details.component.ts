@@ -3,6 +3,7 @@ import {Product} from '../../../models/Product';
 import {ProductServiceService} from '../product-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from "rxjs";
+import {TokenReaderService} from "../../../token-reader.service";
 
 @Component({
     selector: 'app-product-details',
@@ -25,7 +26,7 @@ readParam(){
 
     constructor(
         private productService: ProductServiceService,
-        private route: ActivatedRoute, private router: Router) {
+        private route: ActivatedRoute, private router: Router,public tokenReader:TokenReaderService) {
     }
 
     ngOnInit() {
@@ -83,12 +84,16 @@ readParam(){
     }
 
     goCart(value) {
-        localStorage.setItem('tempProd', JSON.stringify(value));
-        this.router.navigate(['carts']);
+
+
+    let user = this.tokenReader.getLoggedUserInfo()
+        // localStorage.setItem('tempProd', JSON.stringify(value));
+        // this.router.navigate(['carts']);
+        this.productService.addtoCart(value,user.id);
     }
 
     goDetails(e){
-        alert(e);
+
         this.router.navigate(['products','get', e])
             .then(_=> this.readParam())
             .then(_=> this.getProductDetail(this.id))

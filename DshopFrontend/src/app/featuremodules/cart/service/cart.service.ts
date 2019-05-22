@@ -12,8 +12,8 @@ export class CartService {
 
     }
 
-    public getCartList(): Observable<any> {
-        return this._http.get(this.cartUrl);
+    public getCartList(id): Observable<any> {
+        return this._http.get(this.cartUrl+"/"+id);
     }
 
     public deleteItem(cart): Observable<any> {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import { Purchse } from '../../models/purchse.model';
+import {TokenReaderService} from "../../../../token-reader.service";
 
 @Component({
   selector: 'app-purchase-list',
@@ -10,11 +11,11 @@ import { Purchse } from '../../models/purchse.model';
 })
 export class PurchaseListComponent implements OnInit {
 
-  purcheseList: Purchse[];
+  purchaseList:any=[]
   purchseObject: Purchse;
-  length = 0;
+  length = 2;
 
-  constructor(private ordersService: OrdersService) { 
+  constructor(private ordersService: OrdersService,public tokenReader:TokenReaderService) {
       this.purcheseList = new Array<Purchse>();
       this.purchseObject = new Purchse();
   }
@@ -24,27 +25,13 @@ export class PurchaseListComponent implements OnInit {
   }
 
   private getPurchseList() {
-    this.ordersService.getPurchseList().subscribe((res) => {
-        let purchse = new Purchse();
-        
-        for(let i=0; i<res.length; i++){
-          purchse.userId = res[i]._id;
+      let user = this.tokenReader.getLoggedUserInfo()
+    this.ordersService.getPurchseList(user.id).subscribe((res) => {
 
-          for(let j=0; j< res[i].purchases.length; j++){
-             this.length += 1; 
-             purchse.purchseId = res[i].purchases[j]._id;
-             purchse.date = res[i].purchases[j].date;
-             purchse.status = res[i].purchases[j].status;
-             purchse.productId = res[i].purchases[j].product._id;
-             purchse.name = res[i].purchases[j].product.name;
-             purchse.category = res[i].purchases[j].product.category;
-             purchse.price = res[i].purchases[j].product.price;
-             purchse.isAvailable = res[i].purchases[j].product.isAvailable;
-             purchse.image = res[i].purchases[j].product.image[0];
-             purchse.description = res[i].purchases[j].product.description;
-             this.purcheseList.push(purchse);
-          }
-        }
+        console.log(res[0].purchases)
+        this.purchaseList.push(...res[0].purchases)
+
+        console.log(this.purchaseList)
 
     });
   }

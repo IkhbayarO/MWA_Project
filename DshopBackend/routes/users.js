@@ -21,7 +21,7 @@ router.post('/login',(req,res)=>{
   userController.login(req,res);
 })
 
-router.put('/update/address/:id',verifyToken(), (req,res)=>{
+router.put('/update/address/:id', (req,res)=>{
   userController.updateAddress(req,res)
 })
 

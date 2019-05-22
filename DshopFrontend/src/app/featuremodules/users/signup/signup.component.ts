@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   resp:object ={}
   
   
-  constructor(private service:UserserviceService) { }
+  constructor(private service:UserserviceService,public router:Router) { }
 isAdded:boolean
   ngOnInit() {
   }
@@ -37,4 +37,8 @@ isAdded:boolean
    }
 
   }
+
+    goLogin(){
+    this.router.navigate(['users'])
+    }
 }

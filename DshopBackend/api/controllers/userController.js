@@ -156,7 +156,7 @@ exports.login = (req,res)=>{
 
 exports.updateAddress = (req,res)=>{
 
-   const userId = "5ce1a22631ad210ee85509a8"
+   const userId = req.params.id
    const address =req.body.data
 
    console.log(req.customer+" req.")

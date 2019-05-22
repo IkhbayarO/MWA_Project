@@ -28,7 +28,7 @@ export class ProductServiceService {
   //create objet of product
   //import your product class
 
-  updateProduct(serverUrl: string, value: any) {
+  updateProduct2(serverUrl: string, value: any) {
    
     this.http.put(serverUrl,{
       data:{
@@ -64,7 +64,7 @@ export class ProductServiceService {
 
 
       if(res.message=="success"){
-        alert("Added Successfully")
+
         this.isAdded=true
         this.router.navigate(['products'])
       }
@@ -80,7 +80,7 @@ export class ProductServiceService {
 
 
   checkout(serverUrl, product, payment, user){
-    this.http.post(serverUrl, {data:product, payment, user}).subscribe(res=>{
+    this.http.post(serverUrl, {product:product, payment:payment,customerId: user}).subscribe(res=>{
 
       if(res.message=="success"){
         alert("Checkout done");
@@ -97,10 +97,10 @@ export class ProductServiceService {
 
 
   updateAddress(serverUrl, address, id){
-    this.http.post(serverUrl+"/"+id, {data:address}).subscribe(res=>{
+    this.http.put(serverUrl+"/"+id, {data:address}).subscribe(res=>{
 
       if(res.message=="success"){
-        alert("Sell added");
+
         this.isAddressUpdated=true;
         this.router.navigate(['orders']);
       }else{
@@ -115,11 +115,11 @@ export class ProductServiceService {
 
   updateProduct(serverUrl, product){
 
-    this.http.post(serverUrl+"/"+product._id, {data:product}).subscribe(res=>{
+    this.http.put(serverUrl+"/"+product._id, {data:product}).subscribe(res=>{
 
       if(res.message=="success"){
         alert("Checkout done");
-        this.isCreatedPurchase=true;
+        // this.isCreatedPurchase=true;
         this.router.navigate(['orders']);
       }else{
         this.isUpdated=false;
@@ -136,6 +136,12 @@ export class ProductServiceService {
 
     this.http.post("http://localhost:3000/products/upload",{data:file}).subscribe((res)=>{
       console.log(res)
+    })
+  }
+
+  addtoCart(prod,id){
+    this.http.post("http://localhost:3000/carts/"+id,{data:prod}).subscribe((res)=>{
+      this.router.navigate(['carts'])
     })
   }
 

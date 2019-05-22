@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {ProductServiceService} from '../product-service.service';
 import {Product} from '../../../models/Product';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
     templateUrl: './product-by-cat.component.html',
     styleUrls: ['./product-by-cat.component.css']
 })
-export class ProductByCatComponent implements OnInit {
+export class ProductByCatComponent implements OnInit,OnChanges {
     productList: any[] = [];
     product: Product;
     name: string;
@@ -25,6 +25,10 @@ export class ProductByCatComponent implements OnInit {
     ngOnInit() {
         this.getProductsByCat();
     }
+     ngOnChanges(changes: e): void {
+         this.getProductsByCat();
+     }
+
 
     goDetails(e) {
         this.router.navigate(['products', 'get', e])

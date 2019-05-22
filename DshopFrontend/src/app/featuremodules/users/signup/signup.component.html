@@ -20,8 +20,7 @@
                         <div  class="invalid-feedback">
                             <div>Firstname Required</div>
                         </div>
-                        {{user|json}}
-                        {{firstname.className}}
+
                     </div>
 
                     <div class="form-row form-group">
@@ -94,7 +93,7 @@
                      
                       <div class="group-form">
                           <button  class="btn btn--radius-2 btn--red" type="submit" [disabled]="!f.valid">Register</button>
-                          <!-- <button  class="btn btn--radius-2 btn--red" type="submit" >Register</button> -->
+                          <span (click)="goLogin()" style="background: white;margin-left: 20px;color:blue"  >Login</span><!-- <button  class="btn btn--radius-2 btn--red" type="submit" >Register</button> -->
                       </div>
 
                   </form>

@@ -1,14 +1,14 @@
 let User = require('../models/usersModel');
 
 exports.create = (request, response) => {
-    let req = request.body;
-    let userId = req.userId;
+    let req = request.body.data;
+    let userId = request.params.id;
     let cartId = userId + new Date().getTime();
 
     let cart = {
         _id: cartId,
         product:{
-            _id: req.productId,
+            _id: req._id,
             name: req.name,
             category: req.category,
             price: req.price,
@@ -20,7 +20,8 @@ exports.create = (request, response) => {
         date: new Date()
     }
 
-    User.findOneAndUpdate({_id: userId}, {$push: {cart: cart}},{new: true, upsert: true},((error, success) => {
+    console.log(cart)
+    User.findOneAndUpdate({_id: userId}, {$push: {cart: cart}},((error, success) => {
         if(error) {
             console.log("Error in findandupdate:  "+error);//throw error;
             response.status(500).json({Message: "Fail"});
@@ -29,6 +30,8 @@ exports.create = (request, response) => {
             response.status(200).json({Message: "Sucess", data: success});
         }
     }));
+
+
 }
 
 // if(user){
@@ -52,27 +55,7 @@ exports.delete = (request, response) => {
     let req = request.body;
     let userId = req.userId;
     let cartId = req.cartId; 
-    // let deleteCart = {
-    //     _id: cartId,
-    //     product:{
-    //         _id: req.productId,
-    //         name: req.name,
-    //         category: req.category,
-    //         price: req.price,
-    //         isAvailable: req.isAvailable,
-    //         image: req.image,
-    //         description: req.description
-    
-    //     },
-    // }
-    // User.findOneAndUpdate({'_id' : userId} ,{$pull: { 'cart.': deleteCart }},{new: true, upsert: true}, (err, data) => {
-    //     if(err) {
-    //         throw err;
-    //         response.status(500).json({message: "fail"});
-    //     } else{
-    //         response.status(200).json({Message: "Successfully Deleted", Data: data});
-    //     }
-    // });
+
 
     User.findOne().where('_id').equals(userId).exec((error, user) => {
         if (error) {
@@ -105,13 +88,15 @@ exports.delete = (request, response) => {
 }
 
 exports.get = (request, response) => {
-    let userId = "5ce19fb231ad210ee85509a7";
+    let userId = request.params.id
     User.find().where("_id").equals(userId).select('cart').exec((error, data) => {
         if(error){
             throw error;
             response.status(500).json({Message: "Fail"})
+        }else{
+            response.status(200).json({data:data});
         }
 
-        response.json(data);
+
     });
 }
