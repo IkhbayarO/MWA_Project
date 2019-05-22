@@ -171,6 +171,7 @@ exports.addProduct = (req, res) => {
         price: req.body.data.price,
         isAvailable: true,
         image: ["https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/803810_01.jpg"],
+        // image: req.body.data.image,
         description: req.body.data.description
     };
 

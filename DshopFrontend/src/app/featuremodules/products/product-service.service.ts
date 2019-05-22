@@ -78,8 +78,8 @@ export class ProductServiceService {
   }
 
 
-  updateAddress(serverUrl, address){
-    this.http.post(serverUrl, {data:address}).subscribe(res=>{
+  updateAddress(serverUrl, address, id){
+    this.http.post(serverUrl+"/"+id, {data:address}).subscribe(res=>{
 
       if(res.message=="success"){
         alert("Sell added");

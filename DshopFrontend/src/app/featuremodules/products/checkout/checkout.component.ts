@@ -19,7 +19,7 @@ export class CheckoutComponent implements OnInit {
     // urlPurchase: any="";
     // urlSell: any="";
 
-    checkoutUrl: string = "";
+    checkoutUrl: string = 'http://localhost:3000/purchases';
 
     constructor(private productService: ProductServiceService, private tokenService: TokenReaderService) {
 
@@ -45,12 +45,13 @@ export class CheckoutComponent implements OnInit {
         console.log(address);
         console.log(product);
         console.log(payment)
+        console.log(loggedUser.id);
 
         // this.productService.createPurchase(this.urlPurchase, purchaseAndseller);
         // this.productService.createSell(this.urlSell, purchaseAndseller);
 
-        this.productService.updateAddress(this.addressUrl, address);
-        this.productService.checkout(this.checkoutUrl, product, payment, loggedUser._id);
+        this.productService.updateAddress(this.addressUrl, address, loggedUser.id);
+        this.productService.checkout(this.checkoutUrl, product, payment, loggedUser.id);
         this.productService.updateProduct(this.productUrl, product)
 
 

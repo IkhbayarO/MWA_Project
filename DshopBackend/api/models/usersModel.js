@@ -77,7 +77,7 @@ var userSchema = new mongoose.Schema({
         }
     ],
     products:[
-        {   id: ObjectId,
+        {   _id: ObjectId,
             name: {type:String ,required:true},
             category: {type:String ,required:true},
             price: {type:Number ,required:true},
