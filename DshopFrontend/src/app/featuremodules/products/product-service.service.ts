@@ -10,6 +10,7 @@ import {FILE_UPLOAD_DIRECTIVES,FileUploader} from 'ng2-file-upload'
   providedIn: 'root'
 })
 export class ProductServiceService {
+ 
   isAdded:boolean;
   isChecked: boolean;
   isAddressUpdated: boolean;
@@ -26,6 +27,23 @@ export class ProductServiceService {
   //send ajax request request
   //create objet of product
   //import your product class
+
+  updateProduct(serverUrl: string, value: any) {
+   
+    this.http.put(serverUrl,{
+      data:{
+        name:value.name,
+        category:value.category,
+        price:value.price,
+        description:value.description,
+        isAvailable:value.isAvailable
+      }
+    }).subscribe((res)=>{
+      if(res.message=="success"){
+        this.router.navigate(['users','myProducts'])
+      }
+    })
+  }
 
   getProductList() {
     return this.http.get<{data: Product[]}>('http://localhost:3000/products');

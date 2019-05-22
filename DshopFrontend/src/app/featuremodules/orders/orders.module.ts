@@ -9,6 +9,8 @@ import { SalesListComponent } from './sales-list/components/sales-list.component
 
 import { OrdersService } from './services/orders.service';
 import { NotFound404Component } from './not-found404/not-found404.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'src/app/interceptors/auth-interceptor.service';
 
 
 @NgModule({
@@ -23,7 +25,7 @@ import { NotFound404Component } from './not-found404/not-found404.component';
    
   ],
   providers: [
-    OrdersService
+    OrdersService ,  {provide:HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi:true }
   ],
   exports: [
     SalesListComponent,

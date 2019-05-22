@@ -12,7 +12,7 @@ const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'signup',component:SignupComponent},
     {path:'myProducts',component:MyProductsComponent,canActivate:[AuthGuard]},
-    {path:'editProduct/:id',component:EditProductComponent,canActivate:[AuthGuard]},
+    {path:'editProduct',component:EditProductComponent,canActivate:[AuthGuard]},
     {path:'myAccount',component:MyAccountComponent,canActivate:[AuthGuard]},
     {path:'',component:LoginComponent},
     {path:'**',component:NotFound404Component}
