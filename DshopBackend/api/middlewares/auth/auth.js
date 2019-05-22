@@ -27,9 +27,9 @@ if(typeof bearerHeader!=='undefined'){
     const bearToken = bearer[1];
 
     //set the next middleware
-
+      console.log(bearToken)
     req.token = bearToken
-
+      
     next()
 
 }else{

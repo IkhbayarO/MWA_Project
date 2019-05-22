@@ -10,10 +10,12 @@
     
     <div class="row">
         <div class="col">
-
+          <!--
+             class="info"
+          -->
           <form #validate="ngForm">
             <div *ngIf="length !== 0">
-              <div *ngFor="let purchse of purcheseList">
+              <div *ngFor="let purchse of purcheseList" class="list-background">
                 <div class="list">
                   <div class="thumb">
                       <img src="{{purchse.image}}" class="img-fluid" alt="">
@@ -21,12 +23,12 @@
                   <div class="body">
                     <div class="content">
                       <h4>{{purchse.name}}</h4> 
-                      <div class="info">
+                      <div>
                         <span class="company"><i data-feather="briefcase">Price: {{purchse.price}}</i></span>
                         <span class="office-location"><i data-feather="map-pin">Category: {{purchse.category}}</i></span>
                         <span class="job-type full-time"><i data-feather="clock">Status: {{purchse.status}}</i></span>
                       </div>
-                      <div class="info">
+                      <div>
                           <span class="job-type full-time"><i data-feather="clock">Description: {{purchse.description}}</i></span>
                       </div>
                     </div>

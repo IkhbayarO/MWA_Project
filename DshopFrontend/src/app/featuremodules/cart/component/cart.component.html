@@ -1,0 +1,66 @@
+<div class="section-padding alice-bg">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="section-header section-header-2 section-header-with-right-content">
+                <h2>Cart</h2>
+              </div>
+            </div>
+          </div>
+          <!--
+            class="info" 
+          -->
+          <div class="row">
+              <div class="col">
+      
+                <form #validate="ngForm">
+                  <div *ngIf="isThereList">
+                    <div *ngFor="let cart of cartList" class="list-background">
+                      <div class="list">
+                        <div class="thumb">
+                            <img src="{{cart.imageString}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="body">
+                          <div class="content">
+                            <h4>{{cart.name}}</h4> 
+                            <div>
+                              <span class="company"><i data-feather="briefcase"> Price: {{cart.price}} </i></span>
+                              <span class="office-location"><i data-feather="map-pin"> Category: {{cart.category}} </i></span>
+                              <span class="job-type full-time"><i data-feather="clock"> isAvailable: Yes </i></span>
+                              <span class="job-type full-time"><i data-feather="clock"> Date: {{cart.dateString}} </i></span>
+                            </div>
+                            <div>
+                                <span class="job-type full-time"><i data-feather="clock">Description: {{cart.description}}</i></span>
+                            </div>
+                          </div>
+                          <div class="more">
+                              <div class="buttons">
+                                <button class="button" data-toggle="modal" data-target="#apply-cancel-id" (click)="checkOutItem(cart)">
+                                  Check Out
+                                </button>
+                                <button class="button" data-toggle="modal" data-target="#apply-cancel-id" (click)="deleteItem(cart)">
+                                        Delete
+                                </button>
+                                <!--<a href="purcheseList.image"></a>
+                                  <a href="#" class="favourite"><i data-feather="heart"></i></a>cancelOrder($event) [(ngModel)]="singlePurchse"-->
+                              </div>
+                              <!--<div *ngIf="purchse.status !== 'pending'" class="buttons">
+                                  <span  data-toggle="modal" data-target="#apply-delivred-id">{{purchse.status}}</span>
+                              </div>
+                              <p class="deadline">Deadline: Oct 31, 2019</p>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="!isThereList">
+                    <span>you didn't save any product in the cart</span>
+                  </div>
+                </form>  
+              </div> 
+          </div>
+        </div>
+      </div>
+      
+      
+      

@@ -1,10 +1,11 @@
 let express = require('express');
 let router = express.Router();
 let purchseController = require('../api/controllers/purchasesController');
+
 //import auth middleware 
 
 var verifyToken = require('../api/middlewares/auth/verifyToken')
-router.use(verifyToken())
+//router.use(verifyToken())
 
 
 

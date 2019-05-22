@@ -30,8 +30,8 @@ Content-Type: application/json
  Content-Type: 'application/json'
 
  {
-    "_id": "5ce1a0e9a75a287818d31136", 
     "userId": "5ce1a0e9a75a287818d31136",
+    "_id": "5ce1a0e9a75a287818d31136", 
     "name": "Shoes_Jordan23",
     "category": "Staff",
     "price": "100",
@@ -51,7 +51,8 @@ POST http://localhost:3000/sells HTTP/1.1
 
 content
 {
-   "userId": "5ce19f7731ad210ee85509a6",
+   "salesId" : "5ce1a0dda75a287818d31135",
+    "userId": "5ce19f7731ad210ee85509a6",
     "customerId": "5ce19f7731ad210ee85509a6",
     "productId": "5ce1a0dda75a287818d31135",
     "name": "Samsung",
@@ -60,7 +61,7 @@ content
     "isAvailable": "true",
     "image": ["img.png"],
     "description": "In good condition",
-    "status": "pending",
+    "status": "Delivered",
     "firstName": "Hilina",
     "lastName": "Beyene",
     "Phone": "5153464893",
@@ -71,3 +72,15 @@ content
     "zip": "57552",
     "payment":"paypal"
 }
+cart
+{
+	
+    "userId": "5ce19f7731ad210ee85509a6",
+    "productId": "5ce1a0dda75a287818d31135",
+    "name": "test",
+    "category": "ele",
+    "price": "26.4",
+    "isAvailable": "true",
+    "image": "[img.png]",
+    "description": "good"
+ }
