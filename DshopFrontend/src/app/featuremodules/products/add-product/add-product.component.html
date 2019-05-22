@@ -7,7 +7,7 @@
         <h2 class="title">Dshop Add Product Form</h2>
       </div>
       <div class="card-body">
-        <form (ngSubmit)="onSubmit(p)" #p="ngForm" novalidate>
+        <form enctype="multipart/form-data" (ngSubmit)="onSubmit(p)" #p="ngForm" novalidate>
 
           <div class="form-row form-group">
             <div class="name">Product Name</div>

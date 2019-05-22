@@ -12,6 +12,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'src/app/interceptors/auth-interceptor.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -21,8 +23,10 @@ import { AuthInterceptor } from 'src/app/interceptors/auth-interceptor.service';
         CommonModule,
         ProductsRoutingModule,
         FormsModule,
-        ReactiveFormsModule
-    ],
-    providers: [{provide:HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi:true }]
+        ReactiveFormsModule,
+        HttpClientModule,
+        FileUploadModule
+
+    ]
 })
 export class ProductsModule { }

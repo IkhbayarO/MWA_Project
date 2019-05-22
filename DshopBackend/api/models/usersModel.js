@@ -16,8 +16,9 @@ var userSchema = new mongoose.Schema({
     },
     type: String,
     cart:[
-        { product:{
-            id: ObjectId,
+        {  _id:String,
+            product:{
+            _id: String,
             name: String,
             category: String,
             price: Number,
@@ -76,7 +77,7 @@ var userSchema = new mongoose.Schema({
         }
     ],
     products:[
-        {   id: ObjectId,
+        {   _id: ObjectId,
             name: {type:String ,required:true},
             category: {type:String ,required:true},
             price: {type:Number ,required:true},
