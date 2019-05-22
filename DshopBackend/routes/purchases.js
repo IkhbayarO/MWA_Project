@@ -10,7 +10,7 @@ var verifyToken = require('../api/middlewares/auth/verifyToken')
 
 
 //your codes here
-router.get("/",(req, res) => {
+router.get("/:id",(req, res) => {
     purchseController.get(req, res);
 });
 

@@ -1,5 +1,7 @@
 
-
+<div *ngIf="productList.length==0" style="text-align: center;color:red;margin-top:50px;" >
+    <h1 style="text-align: center">No Product available</h1>
+</div>
 <section class="products">
   <div (click)="goDetails(prod)" *ngFor="let prod of productList" class="product-card">
     <div class="product-image">

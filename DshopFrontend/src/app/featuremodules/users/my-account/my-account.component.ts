@@ -26,4 +26,10 @@ export class MyAccountComponent implements OnInit {
     this.router.navigate(['users','myProducts'])
    }
 
+    goAddProd(){
+
+            this.router.navigate(['products','add','new'])
+
+    }
+
 }

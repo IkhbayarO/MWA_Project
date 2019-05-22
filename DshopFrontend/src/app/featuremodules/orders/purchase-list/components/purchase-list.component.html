@@ -3,57 +3,59 @@
     <div class="row">
       <div class="col">
         <div class="section-header section-header-2 section-header-with-right-content">
-          <h2>Purchse List</h2>
+          <h2>Cart</h2>
         </div>
       </div>
     </div>
-    
+    <!--
+      class="info"
+    -->
     <div class="row">
-        <div class="col">
-          <!--
-             class="info"
-          -->
-          <form #validate="ngForm">
-            <div *ngIf="length !== 0">
-              <div *ngFor="let purchse of purcheseList" class="list-background">
-                <div class="list">
-                  <div class="thumb">
-                      <img src="{{purchse.image}}" class="img-fluid" alt="">
+      <div class="col">
+
+        <form #validate="ngForm">
+          <div >
+            <div *ngFor="let cart of purchaseList" class="list-background">
+              <div class="list">
+                <div class="thumb">
+                  <img src="{{cart.product.image}}" class="img-fluid" alt="">
+                </div>
+                <div class="body">
+                  <div class="content">
+                    <h4>{{cart.name}}</h4>
+                    <div>
+                      <span class="company"><i data-feather="briefcase"> Price: ${{cart.product.price}} </i></span>
+                      <span class="office-location"><i data-feather="map-pin"> Category: {{cart.product.category}} </i></span>
+                      <span class="job-type full-time"><i data-feather="clock"> isAvailable: {{cart.product.isAvailable}} </i></span>
+                      <span class="job-type full-time"><i data-feather="clock"> Date: {{cart.date}} </i></span>
+                    </div>
+                    <div>
+                      <span class="job-type full-time"><i data-feather="clock">Description: {{cart.product.description}}</i></span>
+                    </div>
                   </div>
-                  <div class="body">
-                    <div class="content">
-                      <h4>{{purchse.name}}</h4> 
-                      <div>
-                        <span class="company"><i data-feather="briefcase">Price: {{purchse.price}}</i></span>
-                        <span class="office-location"><i data-feather="map-pin">Category: {{purchse.category}}</i></span>
-                        <span class="job-type full-time"><i data-feather="clock">Status: {{purchse.status}}</i></span>
-                      </div>
-                      <div>
-                          <span class="job-type full-time"><i data-feather="clock">Description: {{purchse.description}}</i></span>
-                      </div>
+                  <div class="more">
+                    <div class="buttons">
+<!--                      <button class="button" data-toggle="modal" data-target="#apply-cancel-id" (click)="checkOutItem(cart)">-->
+<!--                        complete-->
+<!--                      </button>-->
+                      <button class="button" data-toggle="modal" data-target="#apply-cancel-id" (click)="deleteItem(cart)">
+                        cancel
+                      </button>
+                      <!--<a href="purcheseList.image"></a>
+                        <a href="#" class="favourite"><i data-feather="heart"></i></a>cancelOrder($event) [(ngModel)]="singlePurchse"-->
                     </div>
-                    <div class="more">
-                        <div *ngIf="purchse.status === 'pending'" class="buttons">
-                          <button class="button" data-toggle="modal" data-target="#apply-cancel-id" (click)="cancelOrder(purchse)" [(ngModel)]="purchseObject">
-                            Cancel Order
-                          </button>
-                          <!--<a href="purcheseList.image"></a>
-                            <a href="#" class="favourite"><i data-feather="heart"></i></a>cancelOrder($event) [(ngModel)]="singlePurchse"-->
-                        </div>
-                        <div *ngIf="purchse.status !== 'pending'" class="buttons">
-                            <span  data-toggle="modal" data-target="#apply-delivred-id">{{purchse.status}}</span>
-                        </div>
-                        <!--<p class="deadline">Deadline: Oct 31, 2019</p>-->
+                    <!--<div *ngIf="purchse.status !== 'pending'" class="buttons">
+                        <span  data-toggle="modal" data-target="#apply-delivred-id">{{purchse.status}}</span>
                     </div>
+                    <p class="deadline">Deadline: Oct 31, 2019</p>-->
                   </div>
                 </div>
               </div>
             </div>
-            <div *ngIf="length === 0">
-              <span>There is no purchase list</span>
-            </div>
-          </form>  
-        </div> 
+          </div>
+
+        </form>
+      </div>
     </div>
   </div>
 </div>

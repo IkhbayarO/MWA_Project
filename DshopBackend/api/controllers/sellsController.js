@@ -1,7 +1,7 @@
 let User = require('../models/usersModel');
 
 exports.get = (request, response) => {
-    let userId = "5ce19fb231ad210ee85509a7";
+    let userId = request.params.id
     User.find().where("_id").equals(userId).select('sells').exec((error, data) => {
         if(error){
             throw error;
@@ -13,7 +13,14 @@ exports.get = (request, response) => {
 
 exports.create =  (request, response) => {
        let req = request.body;
-       let product = req.product;
+      let product = {
+           name:request.body.product.name,
+            category: request.body.product.category,
+            price:request.body.product.price,
+            image: request.body.product.image,
+            description: request.body.product.description,
+            _id:request.body.product._id
+    }
        let customerId = req.customerId
        let salesId;
 
@@ -32,7 +39,7 @@ exports.create =  (request, response) => {
                         salesId =  user._id + new Date().getTime(); 
                         let sales = {
                                         _id: salesId,
-                                        product: req.product,
+                                        product: product,
                                         date:new Date(),
                                         status:"pending",
                                         customer: user.customer,
