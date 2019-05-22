@@ -4,19 +4,20 @@ exports.create = (request, response) => {
     let req = request.body.data;
     let userId = request.params.id;
     let cartId = userId + new Date().getTime();
-
+    let product = {
+        _id: req._id,
+        name: req.name,
+        category: req.category,
+        price: req.price,
+        isAvailable: req.isAvailable,
+        image: req.image,
+        description: req.description
+    
+    }
+    console.log(product)
     let cart = {
         _id: cartId,
-        product:{
-            _id: req._id,
-            name: req.name,
-            category: req.category,
-            price: req.price,
-            isAvailable: req.isAvailable,
-            image: req.image,
-            description: req.description
-        
-        },
+        product:product,
         date: new Date()
     }
 
