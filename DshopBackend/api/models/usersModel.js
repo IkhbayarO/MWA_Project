@@ -16,19 +16,20 @@ var userSchema = new mongoose.Schema({
     },
     type: String,
     cart:[
-        {  _id:String,
-            product:{
-            _id: String,
-            name: String,
-            category: String,
-            price: Number,
-            isAvailable: Boolean,
-            image: [String],
-            description: String
-           
-        },
-        date:Date,
-    }
+            { 
+                _id: String,
+                product:{
+                    _id: ObjectId,
+                    name: String,
+                    category: String,
+                    price: Number,
+                    isAvailable: Boolean,
+                    image: [String],
+                    description: String
+            
+                },
+                date:Date,
+            }
     ],
     purchases:[
         {
@@ -77,7 +78,12 @@ var userSchema = new mongoose.Schema({
         }
     ],
     products:[
+<<<<<<< HEAD
+        {  
+             _id: ObjectId,
+=======
         {   _id: ObjectId,
+>>>>>>> 747e92e764829ab2408cb5eff98e922ae9bbc669
             name: {type:String ,required:true},
             category: {type:String ,required:true},
             price: {type:Number ,required:true},

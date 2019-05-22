@@ -1,7 +1,8 @@
 let User = require('../models/usersModel');
+let sellsController = require('./sellsController').create;
 
 exports.get = (request, response) => {
-    let userId = "5ce19f7731ad210ee85509a6";
+    let userId = "5ce19fb231ad210ee85509a7";
     User.find().where("_id").equals(userId).select('purchases').exec((error, data) => {
         if(error){
             throw error;
@@ -13,31 +14,33 @@ exports.get = (request, response) => {
 }
 
 exports.create = (request, response) => {
+    // {   
+    //     _id: req.productId, 
+    //     name: req.name,
+    //     category: req.category,
+    //     price: req.price,
+    //     isAvailable: false,
+    //     image: req.image,
+    //     description: req.description
+    // },
+
+
     let req = request.body;
-    let userId = req.userId;
+    let userId = req.customerId;
     let purchseId = userId + new Date().getTime();
     let purchse = {
         _id: purchseId,
-        product:
-            {   
-                _id: req.productId, 
-                name: req.name,
-                category: req.category,
-                price: req.price,
-                isAvailable: false,
-                image: req.image,
-                description: req.description
-            },
+        product: req.product,
         date: new Date(),
-        status: req.status
+        status: "pending"
     };
     User.findOneAndUpdate({_id: userId}, {$push: {purchases: purchse}},{new: true, upsert: true},((error, success) => {
         if(error) {
-            console.log("Error in findandupdate:  "+error);//throw error;
+            console.log("Error in findandupdate:  "+error);
             response.status(500).json({Message: "Fail"});
         }
         else {
-            response.status(200).json({Message: "Sucess", data: success});
+            sellsController(request, response);
         }
     }));
 }

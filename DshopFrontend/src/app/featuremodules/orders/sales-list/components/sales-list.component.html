@@ -13,20 +13,24 @@
   
             <form #validate="ngForm">
               <div *ngIf="length !== 0">
-                <div  *ngFor="let sales of salesList">
+                <div  *ngFor="let sales of salesList" class="list-background">
                   <div class="list">
                     <div class="thumb">
                         <img src="{{sales.image}}" class="img-fluid" alt="">
                     </div>
+                    <!--
+                      class="info"
+                      style=" margin-bottom: 10px; "
+                    -->
                     <div class="body">
                       <div class="content">
                         <h4>{{sales.name}}</h4> 
-                        <div class="info">
+                        <div>
                           <span class="company"><i data-feather="briefcase">Price: {{sales.price}}</i></span>
                           <span class="office-location"><i data-feather="map-pin">Category: {{sales.category}}</i></span>
                           <span class="job-type full-time"><i data-feather="clock">Status: {{sales.status}}</i></span>
                         </div>
-                        <div class="info">
+                        <div>
                           <span class="job-type full-time"><i data-feather="clock">Description: {{sales.description}}</i></span>
                         </div>
                       </div>

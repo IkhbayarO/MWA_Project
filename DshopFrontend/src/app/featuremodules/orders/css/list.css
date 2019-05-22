@@ -45,6 +45,15 @@
 /*----------------------------------------------
 	1.0 General Style
 -----------------------------------------------*/
+.textmiddle{
+  text-align: center;
+}
+.list-background{
+  background-color: grey;
+  margin-bottom: 20px;
+  width: 70%;
+  margin-left: 15%
+}
 html {
     font-size: 62.5%;
   }
@@ -3320,7 +3329,7 @@ html {
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    background-color: #246df8;
+    /*background-color: #246df8;*/
     position: absolute;
     left: 50%;
     top: 50%;
@@ -4934,6 +4943,7 @@ html {
   .section-header {
     text-align: center;
     margin-bottom: 50px;
+    margin-left: 40%;
   }
   
   /*.section-header h2 {
@@ -9077,13 +9087,13 @@ html {
     display: none;
   }
   
-  .input-success {
+  /*.input-success {
     background-color: #27ae60;
   }
   
   .input-error {
     background-color: #e74c3c;
-  }
+  }*/
   
   .contact-map {
     margin-top: 60px;
@@ -9891,8 +9901,8 @@ html {
       28.0 Account Style
   ---------------------------------------------*/
   .access-page-bg {
-    background-color: gray;
-    background-size: cover;
+    /*background-color: gray;
+    background-size: cover;*/
   }
   
   .header-2.access-page-nav {
