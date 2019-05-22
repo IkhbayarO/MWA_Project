@@ -27,7 +27,7 @@ export class ProductByCatComponent implements OnInit {
     }
 
     goDetails(e) {
-        this.router.navigate(['products', e])
+        this.router.navigate(['products', 'get', e])
     }
 
     getProductsByCat() {

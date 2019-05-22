@@ -78,8 +78,12 @@ var userSchema = new mongoose.Schema({
         }
     ],
     products:[
+<<<<<<< HEAD
         {  
              _id: ObjectId,
+=======
+        {   _id: ObjectId,
+>>>>>>> 747e92e764829ab2408cb5eff98e922ae9bbc669
             name: {type:String ,required:true},
             category: {type:String ,required:true},
             price: {type:Number ,required:true},

@@ -1,9 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ProductServiceService} from '../product-service.service';
-import {Product} from '../../../models/Product';
-import {ActivatedRoute} from '@angular/router';
-import {Subscription} from "rxjs";
-import {User} from "../../users/model/User";
+import {HttpClient} from "@angular/common/http";
+import {TokenReaderService} from "../../../token-reader.service";
 
 
 @Component({
@@ -12,22 +10,54 @@ import {User} from "../../users/model/User";
     styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-    product: any;
-    temp: any={};
-    serverUrl:string='http://localhost:3000/products/add/new';
-    selectedFile: object;
-
-    constructor(private productService: ProductServiceService) {}
-    ngOnInit() {}
-
-    onUploadImage(event){
-        this.selectedFile=event.target.file[0];
+    product: any={}
+    serverUrl: string = 'http://localhost:3000/products/add/';
+    file: any;
+    fileData: File = null;
+    constructor(private productService: ProductServiceService,
+                 private httpClient: HttpClient, private tokenReader:TokenReaderService) {
     }
 
-    onAdd(form) {
-      this.temp=form.value();
-      this.temp.image=this.selectedFile;
-      this.productService.addProduct(this.serverUrl, this.temp);
+
+
+    ngOnInit() {
+    }
+
+    onUploadImage(event) {
+        alert("fasfhasjdfg")
+        if(event.target.files.length>0){
+            this.file = <File>event.target.files[0];
+            this.productService.uploadFile(this.file)
+        }
+
+
+
+    }
+
+    onSubmit(form) {
+
+
+        const data=form.value;
+       const user = this.tokenReader.getLoggedUserInfo();
+
+
+
+
+        //changing
+        const formData = new FormData();
+        formData.append('image', this.file.name);
+        formData.append('name', data.name);
+        formData.append('category', data.category);
+        formData.append('description', data.description);
+        formData.append('price', data.price);
+       form.value.image=this.file.name
+
+
+        this.productService.addProduct(this.serverUrl, user.id, form.value);
+
+
+
+
     }
 
 }

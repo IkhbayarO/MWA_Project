@@ -3,6 +3,7 @@ var jwt = require('jsonwebtoken')
 var signature  = require('../middlewares/auth/sign')
 const key ="potato2020182"
 
+
 exports.getAll = (req,res)=>{
 
    User.find().exec((err,data)=>{
@@ -17,8 +18,8 @@ exports.getAll = (req,res)=>{
 
 exports.create = (request,response)=>{
 
-let cust = request.body
-
+let cust = request.body.data
+console.log(cust.password)
  let customer = new User({
     firstname:cust.firstname,
     lastname:cust.lastname,
@@ -31,11 +32,14 @@ let cust = request.body
  console.log(customer)
    customer.save((err)=>{
       if(err){
-       
+       throw err
          response.status(500).json({message:'fail'})
-      } 
+      }
+      else{
+          response.status(200).json({message:'success'})
+      }
 
-      response.status(200).json({message:'success'})
+
 
       // try {
       //      response.status(200).json({message:'success'})
@@ -119,10 +123,14 @@ exports.login = (req,res)=>{
               firstname:data[0].firstname,
               lastname:data[0].lastname,
               username:data[0].username,
+              phone:data[0].phone,
+              type:data[0].type,
               email:data[0].email,
-              _id:data._id,
+              id:data[0]._id,
               address:data[0].address
             }
+
+            console.log(data[0])
 
             // console.log("........"+JSON.stringify(user)+"........")
             jwt.sign({user},'mwa',{expiresIn: '30day'}, (err,token)=>{
@@ -146,3 +154,26 @@ exports.login = (req,res)=>{
 
 
 
+exports.updateAddress = (req,res)=>{
+
+   const userId = "5ce1a22631ad210ee85509a8"
+   const address =req.body.data
+
+   console.log(req.customer+" req.")
+   console.log(address)
+
+   User.findOne().where('_id').equals(userId).exec((err,user)=>{
+     console.log(user._id)
+      user.address = address
+
+      user.save((err)=>{
+         if(err){
+            throw err
+         }else{
+            res.status(200).json({message:'success'})
+         }
+      })
+
+   })
+
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenReaderService } from 'src/app/token-reader.service';
 
 @Component({
   selector: 'app-my-account',
@@ -7,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
-
-  constructor(public router:Router) { }
+  user:any
+  constructor(public router:Router,public tokenService:TokenReaderService) { }
 
   ngOnInit() {
+
+    this.user = this.tokenService.getLoggedUserInfo()
   }
 
   logout(){
@@ -20,7 +23,7 @@ export class MyAccountComponent implements OnInit {
    }
 
    gotMyAccount(){
-    this.router.navigate(['users','myAccount'])
+    this.router.navigate(['users','myProducts'])
    }
 
 }
