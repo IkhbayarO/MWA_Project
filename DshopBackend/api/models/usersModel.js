@@ -19,7 +19,7 @@ var userSchema = new mongoose.Schema({
             { 
                 _id: String,
                 product:{
-                    _id: ObjectId,
+                    _id: String,
                     name: String,
                     category: String,
                     price: Number,
