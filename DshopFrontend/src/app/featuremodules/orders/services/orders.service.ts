@@ -14,16 +14,16 @@ export class OrdersService {
 
     }
 
-    public getPurchseList(): Observable<any> { 
-        return this._http.get(this.purchseUrl);
+    public getPurchseList(id): Observable<any> {
+        return this._http.get(this.purchseUrl+"/"+id);
     }
 
     public cancelOrder(purchseOrder: Purchse): Observable<any>{
         return this._http.post(this.purchseUrl, Purchse);
     }
 
-    public getSalesList(): Observable<any> {
-        return this._http.get(this.salseUrl);
+    public getSalesList(id): Observable<any> {
+        return this._http.get(this.salseUrl+"/"+id);
     }
 
     public editSales(sales: Sales): Observable<any> {

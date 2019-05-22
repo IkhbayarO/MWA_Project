@@ -30,6 +30,6 @@ export class EditProductComponent implements OnInit {
     // console.log(form.value);
 
     console.log(form.value)
-    this.productService.updateProduct(this.serverUrl,form.value)
+    this.productService.updateProduct2(this.serverUrl,form.value)
 }
 }

@@ -39,13 +39,13 @@
              
                 <div class="navbar">
                     <ul class="nav navbar-nav" style="flex-direction: row">
-                        <li class="active"><a [routerLink]="['products']" >Product List</a></li>
+                        <li class="active"><a [routerLink]="['']" >Product List</a></li>
                         
-                        <li><a href="shop.html">Electronics</a></li>
-                        <li><a href="single-product.html">Appliances</a></li>
-                        <li><a href="cart.html">Office</a></li>
-                        <li><a href="checkout.html">Education</a></li>
-                        <li><a href="#">Others..</a></li>
+                        <li><a (click)="goProdByCat('Staff')" >Staff</a></li>
+                        <li><a  (click)="goProdByCat('Office')" #it>Office</a></li>
+                        <li><a  (click)="goProdByCat('Shoes')" #it>Shoes</a></li>
+                        <li><a  (click)="goProdByCat('Education')" #it>Education</a></li>
+
                     </ul>
                 </div>  
             </div>

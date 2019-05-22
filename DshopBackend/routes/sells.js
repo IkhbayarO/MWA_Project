@@ -7,7 +7,7 @@ var authCust =require('../api/middlewares/auth/authCust')
 // router.use(verifyToken())
 // authCust()
 //your codes here
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
     sellsController.get(req, res);
 });
 

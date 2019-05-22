@@ -1,95 +1,63 @@
 <div class="section-padding alice-bg">
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="section-header section-header-2 section-header-with-right-content">
-            <h2>Sales List</h2>
-          </div>
+        <div class="row">
+            <div class="col">
+                <div class="section-header section-header-2 section-header-with-right-content">
+                    <h2>Cart</h2>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <div class="row">
-          <div class="col">
-  
-            <form #validate="ngForm">
-              <div *ngIf="length !== 0">
-                <div  *ngFor="let sales of salesList" class="list-background">
-                  <div class="list">
-                    <div class="thumb">
-                        <img src="{{sales.image}}" class="img-fluid" alt="">
-                    </div>
-                    <!--
-                      class="info"
-                      style=" margin-bottom: 10px; "
-                    -->
-                    <div class="body">
-                      <div class="content">
-                        <h4>{{sales.name}}</h4> 
-                        <div>
-                          <span class="company"><i data-feather="briefcase">Price: {{sales.price}}</i></span>
-                          <span class="office-location"><i data-feather="map-pin">Category: {{sales.category}}</i></span>
-                          <span class="job-type full-time"><i data-feather="clock">Status: {{sales.status}}</i></span>
+        <!--
+          class="info"
+        -->
+        <div class="row">
+            <div class="col">
+
+                <form #validate="ngForm">
+                    <div >
+                        <div *ngFor="let cart of salesList" class="list-background">
+                            <div class="list">
+                                <div class="thumb">
+                                    <img src="{{cart.product.image}}" class="img-fluid" alt="">
+                                </div>
+                                <div class="body">
+                                    <div class="content">
+                                        <h4>{{cart.name}}</h4>
+                                        <div>
+                                            <span class="company"><i data-feather="briefcase"> Price: ${{cart.product.price}} </i></span>
+                                            <span class="office-location"><i data-feather="map-pin"> Category: {{cart.product.category}} </i></span>
+                                            <span class="job-type full-time"><i data-feather="clock"> isAvailable: {{cart.product.isAvailable}} </i></span>
+                                            <span class="job-type full-time"><i data-feather="clock"> Date: {{cart.date}} </i></span>
+                                        </div>
+                                        <div>
+                                            <span class="job-type full-time"><i data-feather="clock">Description: {{cart.product.description}}</i></span>
+                                        </div>
+                                    </div>
+                                    <div class="more">
+                                        <div class="buttons">
+                                            <button class="button" data-toggle="modal" data-target="#apply-cancel-id" (click)="checkOutItem(cart)">
+                                                complete
+                                            </button>
+                                            <button class="button" data-toggle="modal" data-target="#apply-cancel-id" (click)="deleteItem(cart)">
+                                                cancel
+                                            </button>
+                                            <!--<a href="purcheseList.image"></a>
+                                              <a href="#" class="favourite"><i data-feather="heart"></i></a>cancelOrder($event) [(ngModel)]="singlePurchse"-->
+                                        </div>
+                                        <!--<div *ngIf="purchse.status !== 'pending'" class="buttons">
+                                            <span  data-toggle="modal" data-target="#apply-delivred-id">{{purchse.status}}</span>
+                                        </div>
+                                        <p class="deadline">Deadline: Oct 31, 2019</p>-->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                          <span class="job-type full-time"><i data-feather="clock">Description: {{sales.description}}</i></span>
-                        </div>
-                      </div>
-                      <div class="more">
-                          <div  class="buttons">
-                              <select name="singleSelect" class="button" data-toggle="modal" data-target="#apply-cancel-id"  (change)="editSales(sales)">
-                                  <option value="pending">Pending</option>
-                                  <option value="shipped">Shipped</option>
-                                  <option value="delivered">Delivered</option>
-                                  <option value="cancel">Cancel</option>
-                              </select>
-                            <!--<button class="button" data-toggle="modal" data-target="#apply-edit-id" (click)="editSales($event)">
-                                Edit Item
-                            </button>
-                            <a href="sales.image[0]"></a>
-                              <a href="#" class="favourite"><i data-feather="heart"></i></a>cancelOrder($event) [(ngModel)]="singlePurchse"-->
-                          </div>
-                          <!--<p class="deadline">Deadline: Oct 31, 2019</p>-->
-                      </div>
                     </div>
-                  </div>
-                </div>
+
+                </form>
             </div>
-            <div *ngIf="length === 0">
-              <span>There is no sales list</span>
-            </div>
-          </form>  
-        </div> 
-      </div>
+        </div>
     </div>
-  </div>
-  
-   <!--<div class="row">
-        <div class="col">
-  
-          <div>
-            <div class="list">
-              <div class="thumb">
-                <a href="#">
-                  <img src="images/job/company-logo-1.png" class="img-fluid" alt="">
-                </a>
-              </div>
-              <div class="body">
-                <div class="content">
-                  <h4><a href="job-details.html">Designer Required</a></h4>
-                  <div class="info">
-                    <span class="company"><a href="#"><i data-feather="briefcase"></i>Theoreo</a></span>
-                    <span class="office-location"><a href="#"><i data-feather="map-pin"></i>New York City</a></span>
-                    <span class="job-type full-time"><a href="#"><i data-feather="clock"></i>Full Time</a></span>
-                  </div>
-                </div>
-                <div class="more">
-                  <div class="buttons">
-                    <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
-                    <a href="#" class="favourite"><i data-feather="heart"></i></a>
-                  </div>
-                  <p class="deadline">Deadline: Oct 31, 2019</p>
-                </div>
-              </div>
-            </div>
-          </div>-->
-  
+</div>
+
+

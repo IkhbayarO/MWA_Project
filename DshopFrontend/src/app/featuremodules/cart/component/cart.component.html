@@ -18,19 +18,19 @@
                     <div *ngFor="let cart of cartList" class="list-background">
                       <div class="list">
                         <div class="thumb">
-                            <img src="{{cart.imageString}}" class="img-fluid" alt="">
+                            <img src="{{cart.product.image}}" class="img-fluid" alt="">
                         </div>
                         <div class="body">
                           <div class="content">
                             <h4>{{cart.name}}</h4> 
                             <div>
-                              <span class="company"><i data-feather="briefcase"> Price: {{cart.price}} </i></span>
-                              <span class="office-location"><i data-feather="map-pin"> Category: {{cart.category}} </i></span>
-                              <span class="job-type full-time"><i data-feather="clock"> isAvailable: Yes </i></span>
-                              <span class="job-type full-time"><i data-feather="clock"> Date: {{cart.dateString}} </i></span>
+                              <span class="company"><i data-feather="briefcase"> Price: ${{cart.product.price}} </i></span>
+                              <span class="office-location"><i data-feather="map-pin"> Category: {{cart.product.category}} </i></span>
+                              <span class="job-type full-time"><i data-feather="clock"> isAvailable: {{cart.product.isAvailable}} </i></span>
+                              <span class="job-type full-time"><i data-feather="clock"> Date: {{cart.date}} </i></span>
                             </div>
                             <div>
-                                <span class="job-type full-time"><i data-feather="clock">Description: {{cart.description}}</i></span>
+                                <span class="job-type full-time"><i data-feather="clock">Description: {{cart.product.description}}</i></span>
                             </div>
                           </div>
                           <div class="more">

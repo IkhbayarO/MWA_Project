@@ -23,6 +23,11 @@ export class AppComponent implements OnInit,OnChanges{
     console.log("Changes happened")
   }
 
+  goProdByCat(el){
+    console.log(el)
+   this.router.navigate(['products','cat',el])
+  }
+
   
 
   

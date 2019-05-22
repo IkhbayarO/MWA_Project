@@ -55,13 +55,14 @@ exports.getProductByCategory = (req, res) => {
 //3. get products by user id
 exports.getProductsByUserId = (req, res) => {
     var id = req.params.id;
-    users.find().where('_id').equals(id).select('products').exec((err, user) => {
+    console.log(id)
+    users.findOne().where('_id').equals(id).select('products').exec((err, user) => {
         if (err) {
             throw err
         } else {
 
-
-            res.status(200).json({message: "success", data: user[0].products})
+           console.log(user)
+            res.status(200).json({message: "success", data: user.products})
 
         }
 
@@ -165,12 +166,12 @@ exports.addProduct = (req, res) => {
     console.log(req.body)
     console.log(req.file)
     var product = {
-
+       _id:new Date().getTime()+userId,
         name: req.body.data.name,
         category: req.body.data.category,
         price: req.body.data.price,
         isAvailable: true,
-        image: ["https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/803810_01.jpg"],
+        image: ["https://www.mockupblast.com/wp-content/uploads/2017/04/Porcelain-Coffee-Cup-Mockup.jpg"],
         // image: req.body.data.image,
         description: req.body.data.description
     };
