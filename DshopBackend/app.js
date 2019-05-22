@@ -17,6 +17,8 @@ var categoriesRouter = require('./routes/categories')
 var paymentsRouter = require('./routes/payments')
 
 
+
+
 var app = express();
 
 // view engine setup
@@ -35,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //importing routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products',productsRouter)
+app.use('/products',productsRouter);
 app.use('/carts',cartsRouter)
 app.use('/purchases', purchasesRouter)
 app.use('/sells',sellsRouter)

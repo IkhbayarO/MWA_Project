@@ -15,7 +15,7 @@ export class AppComponent implements OnInit,OnChanges{
 
   ngOnInit(){
     this.user = this.tokenService.getLoggedUserInfo()
-    alert(this.user.id)
+    console.log(localStorage.getItem("token"))
   }
   ngOnChanges(){
     
