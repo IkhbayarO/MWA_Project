@@ -84,7 +84,7 @@ readParam(){
 
     goCart(value) {
         localStorage.setItem('tempProd', JSON.stringify(value));
-        this.router.navigate(['cart']);
+        this.router.navigate(['carts']);
     }
 
     goDetails(e){
